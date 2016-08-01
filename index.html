@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <video id="imgTranslator" controls="false" class="scene-translator"></video>
+  <video id="translator" controls="false" class="scene-translator"></video>
+  <canvas id="receiver" class="scene-receiver is-visible"></canvas>
+
+  <section id="hero" class="hero">
+    <div class="container">
+      <a href="#" id="initBtn" class="scene-control" onclick="init();">Start</a>
+    </div>
+  </section>
+
+  <div class="container">
+    <section class="scene-text with-right-position is-hidden" data-for="1">
+      <h2 class="section-title">RESEARCH</h2>
+      <p>It all starts with research. At this stage we investigate business domain, all available requirements, variety of target audience, context of usage etc in order to get as much functional and nonfunctional requirements as possible.</p>
+      <div class="row">
+        <div class="col-60">
+          <h3 class="section-subtitle">DO:</h3>
+          <ul>
+            <li>Requirements analysis</li>
+            <li>User research (stakeholders interview, observation, personal interviews, forms and surveys etc.)</li>
+            <li>Competitors research</li>
+            <li>Designing Personas</li>
+          </ul>
+        </div>
+        <div class="col-40">
+          <h3 class="section-subtitle">DELIVER:</h3>
+          <ul>
+            <li>Mindmaps</li>
+            <li>User Journey maps</li>
+            <li>User Flows</li>
+            <li>Personas</li>
+            <li>User stories</li>
+            <li>etc.</li>
+          </ul>
+        </div>
+      </div>
+      <a href="#" class="scene-control" data-scene="scene2">Next</a>
+    </section>
+    <section class="scene-text with-right-position is-hidden" data-for="2">
+      <h2 class="section-title">INFORMATION ARCHITECTURE</h2>
+      <p>Now it's time to define what kind of data or rather content will be delivered to user, which options user will be provided with in order to work with data, in which way a data will be visualized.</p>
+      <div class="row">
+        <div class="col-50">
+          <h3 class="section-subtitle">DO:</h3>
+          <ul>
+            <li>Navigation (global, local, context, ...)</li>
+            <li>Search</li>
+            <li>Data Hierarchy</li>
+          </ul>
+        </div>
+        <div class="col-50">
+          <h3 class="section-subtitle">DELIVER:</h3>
+          <ul>
+            <li>Content strategy documentation</li>
+            <li>Site maps</li>
+            <li>Application flows</li>
+            <li>ER diagrams</li>
+          </ul>
+        </div>
+      </div>
+      <a href="#" class="scene-control" data-scene="scene3">Next</a>
+    </section>
+    <a href="#" class="scene-control is-hidden" data-scene="scene5">Next</a>
+    <section class="scene-text with-right-position is-hidden" data-for="5">
+      <h2 class="section-title">PROTOTYPING</h2>
+      <p>Prototyping is responsible for providing an imitation of a real product. The logical last step of enwrapping of the outcomes of all previous stages into fancy and pleasant visual identity. This is an important part since according to studies users tent to provide higher allegiance to visually appealing products.</p>
+      <h3 class="section-subtitle">DELIVERABLES:</h3>
+      <ul>
+        <li>Prototypes of various fidelity</li>
+        <li>UI concept with visual identity.</li>
+        <li>Set of graphical files with UI designs.</li>
+      </ul>
+      <a href="#" class="scene-control" data-scene="scene6">Next</a>
+    </section>
+    <section class="scene-text with-right-position is-hidden" data-for="6">
+      <a href="#" class="scene-control" data-scene="scene7">BANG!!!!</a>
+    </section>
+  </div>
+
+  <section id="blueprint" class="blueprint is-hidden">
+    <div class="container">
+      <div class="scene-text with-left-position">
+        <h2 class="section-title">INTERACTION DESIGN AND WIREFRAMING</h2>
+        <p>Afterwards we focus on the behavior of the system, it’s ability to provide a high-quality perceivable experience for the user. Wireframes mostly provide basic interface, its flow, and overall structure of the service.</p>
+        <h3 class="section-subtitle">DELIVERABLES:</h3>
+        <div class="row">
+          <div class="col-30">
+            <ul>
+              <li>Mindmaps</li>
+              <li>User Journey maps</li>
+              <li>User Flows</li>
+            </ul>
+          </div>
+          <div class="col-70">
+            <ul>
+              <li>Personas</li>
+              <li>User stories</li>
+              <li>And more.</li>
+            </ul>
+          </div>
+        </div>
+        <a href="#" class="scene-control is-transparent" data-scene="scene4">Next</a>
+      </div>
+      <div class="scene-gfx with-right-position">
+        <img src="img/wireframe-side.png" alt="Wireframe side">
+        <img src="img/wireframe-front.png" alt="Wireframe front">
+        <img class="is-selected" src="img/wireframe-3d.png" alt="Wireframe 3d">
+      </div>
+    </div>
+  </section>
+
+
+  <script  src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
