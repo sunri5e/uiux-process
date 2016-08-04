@@ -50,7 +50,12 @@ var receiver = document.getElementById('receiver'),
       },
       'scene7': {
         'sources' : [
-                      ['video/scene7/hurricane.mp4', 'video/scene7/hurricane.webm', 'video/scene7/hurricane.ogv']
+                      ['video/scene7/1.mp4', 'video/scene7/1.webm', 'video/scene7/1.ogv'],
+                      ['video/scene7/2.mp4', 'video/scene7/2.webm', 'video/scene7/2.ogv'],
+                      ['video/scene7/3.mp4', 'video/scene7/3.webm', 'video/scene7/3.ogv'],
+                      ['video/scene7/4.mp4', 'video/scene7/4.webm', 'video/scene7/4.ogv'],
+                      ['video/scene7/5.mp4', 'video/scene7/5.webm', 'video/scene7/5.ogv'],
+                      ['video/scene7/6.mp4', 'video/scene7/6.webm', 'video/scene7/6.ogv'],
                     ],
         'images' : ['img/scene7/7_scene_barber_chair.jpg', 'img/scene7/7_scene_clothed_chair.jpg', 'img/scene7/7_scene_movie_chair.jpg', 'img/scene7/7_scene_space_chair.jpg', 'img/scene7/7_scene_woodn_chair.jpg'],
         'shift' : true
