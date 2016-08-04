@@ -9,14 +9,40 @@
   <video id="imgTranslator" controls="false" class="scene-translator"></video>
   <video id="translator" controls="false" class="scene-translator"></video>
   <canvas id="receiver" class="scene-receiver is-visible"></canvas>
-
+  <!-- Hero Section -->
   <section id="hero" class="hero">
-    <div class="container">
-      <a href="#" id="initBtn" class="scene-control" onclick="init();">Start</a>
+    <nav>
+      <div class="pull-right">
+        <ul class="ux-navigation">
+          <li>
+            <a href="http://www.ux.perfectial.com">UX Matters</a>
+          </li>
+          <li class="active">
+            <a href="#">Our Process</a>
+          </li>
+          <li>
+            <a href="https://www.behance.net/perfectial" target="_blank">Portfolio</a>
+          </li>
+        </ul>
+      </div>
+      <div class="logo">
+        <img src="img/logo.png" width="250" alt="Perfectial - Empower your ideas.">
+      </div>
+    </nav>
+    <div class="hero-text align-center-vertical">
+      <div class="text-center">
+        <h3>Now, let's talk about</h3>
+        <h1>Our process</h1>
+      </div>
+    </div>
+    <div class="scene-control--holder">
+      <button tabindex="1" autofocus id="initBtn" class="scene-control" onclick="init();">Start</button>
     </div>
   </section>
 
   <div class="container">
+
+    <!-- Research Section -->
     <section class="scene-text with-right-position is-hidden" data-for="1">
       <h2 class="section-title">RESEARCH</h2>
       <p>It all starts with research. At this stage we investigate business domain, all available requirements, variety of target audience, context of usage etc in order to get as much functional and nonfunctional requirements as possible.</p>
@@ -42,8 +68,10 @@
           </ul>
         </div>
       </div>
-      <a href="#" class="scene-control" data-scene="scene2">Next</a>
+      <button tabindex="2" class="scene-control" data-scene="scene2">Continue</button>
     </section>
+
+    <!-- iA Section -->
     <section class="scene-text with-right-position is-hidden" data-for="2">
       <h2 class="section-title">INFORMATION ARCHITECTURE</h2>
       <p>Now it's time to define what kind of data or rather content will be delivered to user, which options user will be provided with in order to work with data, in which way a data will be visualized.</p>
@@ -66,9 +94,9 @@
           </ul>
         </div>
       </div>
-      <a href="#" class="scene-control" data-scene="scene3">Next</a>
+      <button tabindex="3" class="scene-control" data-scene="scene3">Continue</button>
     </section>
-    <a href="#" class="scene-control is-hidden" data-scene="scene5">Next</a>
+    <button tabindex="5" class="scene-control is-hidden" data-scene="scene5">Continue</button>
     <section class="scene-text with-right-position is-hidden" data-for="5">
       <h2 class="section-title">PROTOTYPING</h2>
       <p>Prototyping is responsible for providing an imitation of a real product. The logical last step of enwrapping of the outcomes of all previous stages into fancy and pleasant visual identity. This is an important part since according to studies users tent to provide higher allegiance to visually appealing products.</p>
@@ -78,10 +106,10 @@
         <li>UI concept with visual identity.</li>
         <li>Set of graphical files with UI designs.</li>
       </ul>
-      <a href="#" class="scene-control" data-scene="scene6">Next</a>
+      <button tabindex="6" class="scene-control" data-scene="scene6">Continue</button>
     </section>
     <section class="scene-text with-right-position is-hidden" data-for="6">
-      <a href="#" class="scene-control" data-scene="scene7">BANG!!!!</a>
+      <button tabindex="7" class="scene-control" data-scene="scene7">BANG!!!!</button>
     </section>
   </div>
 
@@ -107,7 +135,7 @@
             </ul>
           </div>
         </div>
-        <a href="#" class="scene-control is-transparent" data-scene="scene4">Next</a>
+        <button tabindex="4" class="scene-control is-transparent" data-scene="scene4">Continue</button>
       </div>
       <div class="scene-gfx with-right-position">
         <img src="img/wireframe-side.png" alt="Wireframe side">
