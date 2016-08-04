@@ -280,13 +280,9 @@ nav {
             transform: translateY(2px); }
   .scene-control.is-hidden {
     display: none; }
-  .scene-control.is-transparent {
-    border: 2px solid #e8ab2b;
-    background-color: transparent;
-    color: #e8ab2b;
-    -webkit-box-shadow: none;
-            box-shadow: none;
-    padding: 8px 15px; }
+  .scene-control.is-filled {
+    background-color: #e8ab2b;
+    color: #fff; }
 
 * + .scene-control {
   margin-top: 50px; }

@@ -45,19 +45,14 @@ var receiver = document.getElementById('receiver'),
       },
       'scene6': {
         'sources' : [
-                      ['video/scene6/derp.mp4', 'video/scene6/derp.mp4', 'video/scene6/derp.mp4']
+                      ['video/scene6/bang.mp4', 'video/scene6/bang.webm', 'video/scene6/bang.ogv']
                     ]
       },
       'scene7': {
         'sources' : [
-                      ['video/scene7/bang.mp4', 'video/scene7/bang.webm', 'video/scene7/bang.ogv']
+                      ['video/scene7/hurricane.mp4', 'video/scene7/hurricane.webm', 'video/scene7/hurricane.ogv']
                     ],
-      },
-      'scene8': {
-        'sources' : [
-                      ['video/scene8/hurricane.mp4', 'video/scene8/hurricane.webm', 'video/scene8/hurricane.ogv']
-                    ],
-        'images' : ['img/scene8/8_scene_barber_chair.jpg', 'img/scene8/8_scene_clothed_chair.jpg', 'img/scene8/8_scene_movie_chair.jpg', 'img/scene8/8_scene_space_chair.jpg', 'img/scene8/8_scene_woodn_chair.jpg'],
+        'images' : ['img/scene7/7_scene_barber_chair.jpg', 'img/scene7/7_scene_clothed_chair.jpg', 'img/scene7/7_scene_movie_chair.jpg', 'img/scene7/7_scene_space_chair.jpg', 'img/scene7/7_scene_woodn_chair.jpg'],
         'shift' : true
       }
     },
@@ -68,7 +63,6 @@ var receiver = document.getElementById('receiver'),
     textSections = getAllElementsWithAttribute('data-for'),
     sceneHandler = handleVideoSource(playingScene),
     hero = document.getElementById('hero');
-
 
 
 function getAllElementsWithAttribute(attribute) {
