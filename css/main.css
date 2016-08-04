@@ -2,7 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,700|Montserrat:700);
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700|Montserrat:700);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -64,7 +64,8 @@ body {
   font-size: 18px;
   font-weight: 400;
   line-height: 30px;
-  color: #fff; }
+  color: #fff;
+  background: url("../img/1_scene0000.jpg"), #e48c06; }
 
 ul {
   margin: 0;
@@ -100,6 +101,9 @@ ul {
   padding-left: 10px;
   padding-right: 10px; }
 
+.pull-right {
+  float: right; }
+
 .col-100 {
   width: 100%; }
 
@@ -129,6 +133,62 @@ ul {
 
 .col-10 {
   width: 10%; }
+
+.align-center-vertical {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column; }
+
+nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 50px 50px 0; }
+  nav .ux-navigation {
+    list-style: none; }
+    nav .ux-navigation li {
+      text-transform: uppercase;
+      display: inline-block;
+      font-size: 18px; }
+      nav .ux-navigation li:before {
+        content: none; }
+      nav .ux-navigation li + li {
+        margin-left: 50px; }
+      nav .ux-navigation li a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        opacity: 1;
+        -webkit-transition: opacity .4s;
+        transition: opacity .4s; }
+        nav .ux-navigation li a:hover {
+          opacity: .5; }
+      nav .ux-navigation li.active a {
+        color: rgba(0, 0, 0, 0.7);
+        position: relative;
+        opacity: 1; }
+        nav .ux-navigation li.active a:after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: -10px;
+          border-bottom: 3px solid rgba(0, 0, 0, 0.3); }
+
+.text-center {
+  text-align: center; }
 
 .scene-translator {
   display: none; }
@@ -174,7 +234,7 @@ ul {
     opacity: 0;
     pointer-events: none;
     margin-left: -40px; }
-  .scene-text.is-hiddening {
+  .scene-text.is-hiding {
     opacity: 0;
     margin-left: 40px; }
 
@@ -201,14 +261,23 @@ ul {
   padding: 10px 15px;
   min-width: 160px;
   height: 50px;
-  background-color: rgba(180, 77, 0, 0.09);
+  background-color: #fff;
   -webkit-border-radius: 3px;
           border-radius: 3px;
-  -webkit-box-shadow: 0 3px 6px rgba(183, 80, 1, 0.35);
-          box-shadow: 0 3px 6px rgba(183, 80, 1, 0.35);
   color: #fff;
   font-size: 18px;
-  font-weight: 700; }
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.7);
+  -webkit-transition: background-color .4s;
+  transition: background-color .4s;
+  border: 0; }
+  .scene-control:hover {
+    background-color: rgba(255, 255, 255, 0.7); }
+  .scene-control:active {
+    -webkit-transform: translateY(2px);
+        -ms-transform: translateY(2px);
+            transform: translateY(2px); }
   .scene-control.is-hidden {
     display: none; }
   .scene-control.is-transparent {
@@ -246,12 +315,35 @@ ul {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #c9d3e8;
   z-index: 3;
-  -webkit-transition: top .5s;
-  transition: top .5s; }
+  opacity: 1;
+  -webkit-transition: all .5s;
+  transition: all .5s; }
   .hero.is-hidden {
-    top: -100%; }
+    top: -100%;
+    opacity: 0; }
+  .hero h1, .hero h3 {
+    text-transform: uppercase; }
+  .hero h1 {
+    font-size: 110px;
+    line-height: 110px;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 100px; }
+  .hero h3 {
+    font-size: 36px;
+    line-height: 36px;
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 30px; }
+  .hero .hero-text {
+    height: 100vh; }
+  .hero .scene-control--holder {
+    position: absolute;
+    left: 50%;
+    bottom: 150px;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%); }
 
 .blueprint {
   position: fixed;
@@ -277,5 +369,5 @@ ul {
         -webkit-transform: scale(1.4);
             -ms-transform: scale(1.4);
                 transform: scale(1.4); }
-  .blueprint.is-hiddening {
+  .blueprint.is-hiding {
     left: -100%; }

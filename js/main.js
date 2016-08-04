@@ -45,7 +45,7 @@ var receiver = document.getElementById('receiver'),
       },
       'scene6': {
         'sources' : [
-                      ['video/scene6/gun.mp4', 'video/scene6/gun.webm', 'video/scene6/gun.ogv']
+                      ['video/scene6/derp.mp4', 'video/scene6/derp.mp4', 'video/scene6/derp.mp4']
                     ]
       },
       'scene7': {
@@ -178,12 +178,12 @@ function sceneIntro(introEl, introModifier, baseModifier, baseContent) {
   video.onloadedmetadata = function() {
     currentVideoDuration = video.duration * 1000;
     setTimeout(function(){
-      replaceClass(introEl, 'is-third', 'is-hiddening');
+      replaceClass(introEl, 'is-third', 'is-hiding');
       replaceClass(receiver, 'is-two-thirds', 'is-visible');
-      showContentSection(textSections, 'is-hiddening', 'is-hidden', baseContent);
+      showContentSection(textSections, 'is-hiding', 'is-hidden', baseContent);
       playNextVideo(playingScene);
       setTimeout(function(){
-        replaceClass(introEl, 'is-hiddening', 'is-hidden');
+        replaceClass(introEl, 'is-hiding', 'is-hidden');
       }, 1000);
     }, currentVideoDuration);
   };
@@ -245,13 +245,13 @@ function init() {
         if (videoSource[playingScene].intro) {
           sceneIntro(videoSource[playingScene].intro, 'is-third', 'is-two-thirds', newText);
         } else {
-          showContentSection(textSections, 'is-hiddening', 'is-hidden', newText);
+          showContentSection(textSections, 'is-hiding', 'is-hidden', newText);
         }
       }, currentVideoDuration - vidCurrentTime);
     }
   }
 
-  showContentSection(textSections, 'is-hiddening', 'is-hidden', 1);
+  showContentSection(textSections, 'is-hiding', 'is-hidden', 1);
   replaceVideoSource(playingScene, sceneHandler);
 
 
