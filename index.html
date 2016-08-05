@@ -11,24 +11,6 @@
   <canvas id="receiver" class="scene-receiver is-visible"></canvas>
   <!-- Hero Section -->
   <section id="hero" class="hero">
-    <nav>
-      <div class="pull-right">
-        <ul class="ux-navigation">
-          <li>
-            <a href="http://www.ux.perfectial.com">UX Matters</a>
-          </li>
-          <li class="active">
-            <a href="#">Our Process</a>
-          </li>
-          <li>
-            <a href="https://www.behance.net/perfectial" target="_blank">Portfolio</a>
-          </li>
-        </ul>
-      </div>
-      <div class="logo">
-        <img src="img/logo.png" width="250" alt="Perfectial - Empower your ideas.">
-      </div>
-    </nav>
     <div class="hero-text align-center-vertical">
       <div class="text-center">
         <h3>Now, let's talk about</h3>
@@ -43,7 +25,7 @@
   <div class="container">
 
     <!-- Research Section -->
-    <section class="scene-text with-right-position is-hidden" data-for="1">
+    <section class="scene-section scene-text with-right-position is-hidden" data-for="1">
       <h2 class="section-title">RESEARCH</h2>
       <p>It all starts with research. At this stage we investigate business domain, all available requirements, variety of target audience, context of usage etc in order to get as much functional and nonfunctional requirements as possible.</p>
       <div class="row">
@@ -72,7 +54,7 @@
     </section>
 
     <!-- iA Section -->
-    <section class="scene-text with-right-position is-hidden" data-for="2">
+    <section class="scene-section scene-text with-right-position is-hidden" data-for="2">
       <h2 class="section-title">INFORMATION ARCHITECTURE</h2>
       <p>Now it's time to define what kind of data or rather content will be delivered to user, which options user will be provided with in order to work with data, in which way a data will be visualized.</p>
       <div class="row">
@@ -99,7 +81,7 @@
     <button tabindex="5" class="scene-control is-hidden" data-scene="scene5">Continue</button>
 
     <!-- Prototyping section -->
-    <section class="scene-text with-right-position is-hidden" data-for="5">
+    <section class="scene-section scene-text with-right-position is-hidden" data-for="5">
       <h2 class="section-title">PROTOTYPING</h2>
       <p>Prototyping is responsible for providing an imitation of a real product.</p>
       <h3 class="section-subtitle">DELIVERABLES:</h3>
@@ -110,7 +92,7 @@
     </section>
 
     <!-- Design section -->
-    <section class="scene-text with-right-position is-hidden" data-for="6">
+    <section class="scene-section scene-text with-right-position is-hidden" data-for="6">
       <h2 class="section-title">DESIGN</h2>
       <p>The logical last step of enwrapping of the outcomes of all previous stages into fancy and pleasant visual identity. This is an important part since according to studies users tent to provide higher allegiance to visually appealing products.</p>
       <h3 class="section-subtitle">DELIVERABLES:</h3>
@@ -122,7 +104,7 @@
     </section>
 
     <!-- Iteration section -->
-    <section class="scene-text with-right-position is-hidden" data-for="7">
+    <section class="scene-section scene-text with-right-position is-hidden" data-for="7">
       <h2 class="section-title">TEST AND ITERATE</h2>
       <p>The UX design is an iterative process. That's why after Wireframing and Prototyping we check whether the proposed solution solves user's problems. And iterate-iterate-iterate.</p>
       <h3 class="section-subtitle">DELIVERABLES:</h3>
@@ -135,7 +117,7 @@
   </div>
 
   <!-- Blueprint section -->
-  <section id="blueprint" class="blueprint is-hidden">
+  <section id="blueprint" class="scene-section blueprint is-hidden">
     <div class="container">
       <div class="scene-text with-left-position">
         <h2 class="section-title">INTERACTION DESIGN AND WIREFRAMING</h2>
@@ -160,14 +142,66 @@
         <button tabindex="4" class="scene-control is-filled" data-scene="scene4">Continue</button>
       </div>
       <div class="scene-gfx with-right-position">
-        <img src="img/wireframe-side.png" alt="Wireframe side">
-        <img src="img/wireframe-front.png" alt="Wireframe front">
-        <img class="is-selected" src="img/wireframe-3d.png" alt="Wireframe 3d">
+        <img class="will-hide" src="img/wireframe-side.png" alt="Wireframe side">
+        <img class="will-hide" src="img/wireframe-front.png" alt="Wireframe front">
+        <img class="will-hide" src="img/wireframe-3d.png" alt="Wireframe 3d">
+        <img class="will-show is-selected" src="img/wireframes.png" alt="Wireframe 3d">
       </div>
     </div>
   </section>
 
+  <!-- Navigation -->
+  <nav>
+    <div class="pull-right">
+      <ul class="ux-navigation">
+        <li>
+          <a href="http://www.ux.perfectial.com">UX Matters</a>
+        </li>
+        <li class="active">
+          <a href="#">Our Process</a>
+        </li>
+        <li>
+          <a href="https://www.behance.net/perfectial" target="_blank">Portfolio</a>
+        </li>
+      </ul>
+    </div>
+    <div class="logo">
+      <a href="http://perfectial.com/" target="_blank"><img src="img/logo.png" width="250" alt="Perfectial - Empower your ideas."></a>
+    </div>
+  </nav>
 
+  <div id="pagination" class="progress">
+    <div class="bar first">
+      <div class="progress-indicator was-active" data-bar="1"></div>
+      <button data-scene="scene1"></button>
+    </div>
+    <div class="bar">
+      <div class="progress-indicator " data-bar="2"></div>
+      <button data-scene="scene2"></button>
+    </div>
+    <div class="bar">
+      <div class="progress-indicator" data-bar="3"></div>
+      <button data-scene="scene3"></button>
+    </div>
+    <div class="bar">
+      <div class="progress-indicator" data-bar="4"></div>
+      <button data-scene="scene4"></button>
+    </div>
+    <div class="bar">
+      <div class="progress-indicator" data-bar="5"></div>
+      <button data-scene="scene5"></button>
+    </div>
+    <div class="bar">
+      <div class="progress-indicator" data-bar="6"></div>
+      <button data-scene="scene6"></button>
+    </div>
+    <div class="bar">
+      <div class="progress-indicator" data-bar="7"></div>
+      <button data-scene="scene7"></button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
   <script  src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script src="js/main.js"></script>
 </body>

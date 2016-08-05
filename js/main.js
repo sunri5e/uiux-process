@@ -45,26 +45,25 @@ var receiver = document.getElementById('receiver'),
       },
       'scene6': {
         'sources' : [
-                      ['video/scene6/bang.mp4', 'video/scene6/bang.webm', 'video/scene6/bang.ogv']
+                      ['video/scene6/pool.mp4', 'video/scene6/pool.webm', 'video/scene6/pool.ogv']
                     ]
       },
       'scene7': {
         'sources' : [
-                      ['video/scene7/1.mp4', 'video/scene7/1.webm', 'video/scene7/1.ogv'],
                       ['video/scene7/2.mp4', 'video/scene7/2.webm', 'video/scene7/2.ogv'],
                       ['video/scene7/3.mp4', 'video/scene7/3.webm', 'video/scene7/3.ogv'],
                       ['video/scene7/4.mp4', 'video/scene7/4.webm', 'video/scene7/4.ogv'],
                       ['video/scene7/5.mp4', 'video/scene7/5.webm', 'video/scene7/5.ogv'],
                       ['video/scene7/6.mp4', 'video/scene7/6.webm', 'video/scene7/6.ogv'],
+                      ['video/scene7/1.mp4', 'video/scene7/1.webm', 'video/scene7/1.ogv'],
                     ],
-        'images' : ['img/scene7/7_scene_barber_chair.jpg', 'img/scene7/7_scene_clothed_chair.jpg', 'img/scene7/7_scene_movie_chair.jpg', 'img/scene7/7_scene_space_chair.jpg', 'img/scene7/7_scene_woodn_chair.jpg'],
-        'shift' : true
+        'loop' : true
       }
     },
     i = 0,
     playingScene = 'scene1',
     currentVideoDuration,
-    control = document.getElementsByClassName('scene-control'),
+    control = getAllElementsWithAttribute('data-scene'),
     textSections = getAllElementsWithAttribute('data-for'),
     sceneHandler = handleVideoSource(playingScene),
     hero = document.getElementById('hero');
@@ -131,19 +130,17 @@ function showContentSection(arr, interimClass, newClass, skipItem) {
 
 function playVideo(scene, videoNum) {
   video.innerHTML = '';
-
   for (let j = 0; j < videoSource[scene].sources[videoNum].length; j++) {
     let sourceTag = document.createElement("source");
 
     sourceTag.setAttribute("src", videoSource[scene].sources[videoNum][j]);
     video.appendChild(sourceTag);
   }
-
-  if (video.innerHTML == '') {
-    console.log('Try load image!');
-  } else {
-    console.log('Have souces!');
-  }
+  // if (video.innerHTML == '') {
+  //   console.log('Try load image!');
+  // } else {
+  //   console.log('Have sources!');
+  // }
 
   video.load();
   video.play();
@@ -197,13 +194,11 @@ function handleVideoSource(scene) {
 function playNextVideo(scene) {
   var nextScene = parseInt(scene.substring(5))+1,
       triger = document.querySelectorAll('[data-scene="scene'+nextScene+'"]');
-
   triger[0].click();
 }
 
 function replaceVideoSource(scene, handler) {
   var currentSceneSrc = videoSource[scene];
-
   if (i >= currentSceneSrc.sources.length) {
     i = 0;
   }
@@ -226,6 +221,8 @@ function replaceVideoSource(scene, handler) {
 
 
 function init() {
+  var pagination = document.getElementById('pagination');
+  pagination.classList.add('is-visible');
   for (let i = 0; i < control.length; i++) {
     control[i].onclick = function(e) {
       e.preventDefault();
@@ -239,6 +236,16 @@ function init() {
       sceneHandler = handleVideoSource(playingScene);
 
       setTimeout(function() {
+        var progressIndicator = document.querySelectorAll('.progress-indicator[data-bar="'+newText+'"]');
+        progressIndicator[0].style.width = '100%';
+        progressIndicator[0].classList.remove("was-active");
+        progressIndicator[0].classList.add("was-active");
+
+        replaceClass(receiver, 'is-hidden', 'is-visible');
+        var allScenes = document.querySelectorAll('.scene-section');
+        [].forEach.call(allScenes, function(el) {
+            replaceClass(el, 'is-open', 'is-hidden');
+        });
         replaceVideoSource(playingScene, sceneHandler);
         // check if scene has intro part, otherwise go ahead
         if (videoSource[playingScene].intro) {
@@ -278,7 +285,3 @@ receiver.setAttribute('height', window.innerWidth / 4 * 3);
 /* -----------------
   end Plaing video to canvas 
   -----------------*/
-
-
-
-
