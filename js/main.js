@@ -236,10 +236,11 @@ function init() {
       sceneHandler = handleVideoSource(playingScene);
 
       setTimeout(function() {
-        var progressIndicator = document.querySelectorAll('.progress-indicator[data-bar="'+newText+'"]');
-        progressIndicator[0].style.width = '100%';
-        progressIndicator[0].classList.remove("was-active");
-        progressIndicator[0].classList.add("was-active");
+        var progressIndicator = document.querySelectorAll('.scene-pager[data-scene="scene'+newText+'"]');
+        if (progressIndicator[0] !== undefined) {
+          progressIndicator[0].classList.remove("was-active");
+          progressIndicator[0].classList.add("was-active");
+        }
 
         replaceClass(receiver, 'is-hidden', 'is-visible');
         var allScenes = document.querySelectorAll('.scene-section');
@@ -253,6 +254,8 @@ function init() {
         } else {
           showContentSection(textSections, 'is-hiding', 'is-hidden', newText);
         }
+        document.getElementById('body').classList = ['scene-playing-'+ newText]
+        var allPagers = document.querySelectorAll('.scene-pager');
       }, currentVideoDuration - vidCurrentTime);
     }
   }

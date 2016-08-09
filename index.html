@@ -5,7 +5,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body id="body" class="scene-playing-1">
   <video id="imgTranslator" controls="false" class="scene-translator"></video>
   <video id="translator" controls="false" class="scene-translator"></video>
   <canvas id="receiver" class="scene-receiver is-visible"></canvas>
@@ -152,52 +152,73 @@
 
   <!-- Navigation -->
   <nav>
-    <div class="pull-right">
-      <ul class="ux-navigation">
-        <li>
-          <a href="http://www.ux.perfectial.com">UX Matters</a>
-        </li>
-        <li class="active">
-          <a href="#">Our Process</a>
-        </li>
-        <li>
-          <a href="https://www.behance.net/perfectial" target="_blank">Portfolio</a>
-        </li>
-      </ul>
-    </div>
-    <div class="logo">
-      <a href="http://perfectial.com/" target="_blank"><img src="img/logo.png" width="250" alt="Perfectial - Empower your ideas."></a>
+    <div class="row middle-xs">
+      <div class="col-50">
+        <div class="logo">
+          <img src="img/logo.svg" width="250" alt="Perfectial - Empower your ideas.">
+          <a href="http://perfectial.com/" target="_blank">Visit perfectial.com</a>
+        </div>
+      </div>
+      <div class="col-50">
+        <ul class="ux-navigation pull-right">
+          <li>
+            <a href="http://www.ux.perfectial.com">UX Matters</a>
+          </li>
+          <li class="active">
+            <a href="#">Our Process</a>
+          </li>
+          <li>
+            <a href="https://www.behance.net/perfectial" target="_blank">Portfolio</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 
   <div id="pagination" class="progress">
-    <div class="bar first">
-      <div class="progress-indicator was-active" data-bar="1"></div>
-      <button data-scene="scene1"></button>
-    </div>
-    <div class="bar">
-      <div class="progress-indicator " data-bar="2"></div>
-      <button data-scene="scene2"></button>
-    </div>
-    <div class="bar">
-      <div class="progress-indicator" data-bar="3"></div>
-      <button data-scene="scene3"></button>
-    </div>
-    <div class="bar">
-      <div class="progress-indicator" data-bar="4"></div>
-      <button data-scene="scene4"></button>
-    </div>
-    <div class="bar">
-      <div class="progress-indicator" data-bar="5"></div>
-      <button data-scene="scene5"></button>
-    </div>
-    <div class="bar">
-      <div class="progress-indicator" data-bar="6"></div>
-      <button data-scene="scene6"></button>
-    </div>
-    <div class="bar">
-      <div class="progress-indicator" data-bar="7"></div>
-      <button data-scene="scene7"></button>
+    <div class="row middle-xs">
+      <div class="col-one-sixth">
+        <div class="align-center-vertical">
+          <button class="scene-pager was-active" data-scene="scene1">
+            <span class="scene-name">Research</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-one-sixth">
+        <div class="align-center-vertical">
+          <button class="scene-pager" data-scene="scene2">
+            <span class="scene-name">IA</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-one-sixth">
+        <div class="align-center-vertical">
+          <button class="scene-pager" data-scene="scene3">
+            <span class="scene-name">I<small>x</small>D &amp;<br>Wireframing</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-one-sixth">
+        <div class="align-center-vertical">
+          <button class="scene-pager" data-scene="scene4">
+            <span class="scene-name">Prototyping</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-one-sixth">
+        <div class="align-center-vertical">
+          <button class="scene-pager" data-scene="scene6">
+            <span class="scene-name">Design</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-one-sixth">
+        <div class="align-center-vertical">
+          <button class="scene-pager" data-scene="scene7">
+            <span class="scene-name">Test &amp;<br>Iterate</span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 

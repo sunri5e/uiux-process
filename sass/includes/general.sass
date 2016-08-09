@@ -6,6 +6,7 @@
 
 $color-light: #fff
 $color-dark: #000
+$color-yellow: #e8ab2b
 $font-main: 'Roboto', sans-serif
 $font-highlight: 'Montserrat', sans-serif
 $transition-time-general: .5s
@@ -25,7 +26,7 @@ body
   font-weight: 400
   line-height: 30px
   color: $color-light
-  background: url('../img/1_scene0000.jpg'), #e48c06
+  background: #e79e11
 
 
 ul
@@ -49,20 +50,28 @@ ul
   margin: 0 auto
 
 .row
-  margin-left: -10px
-  margin-right: -10px
-  &:before,
-  &:after
-    content: ''
-    display: table-cell
-  &:after
-    clear: both
+  box-sizing: border-box
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-flex: 0 1 auto
+  -ms-flex: 0 1 auto
+  flex: 0 1 auto
+  -webkit-flex-direction: row
+  -ms-flex-direction: row
+  flex-direction: row
+  -webkit-flex-wrap: wrap
+  -ms-flex-wrap: wrap
+  flex-wrap: wrap
 
-*[class^="col-"]
-  min-height: 1px
-  float: left
-  padding-left: 10px
-  padding-right: 10px
+.bottom-xs
+  -webkit-align-items: flex-end
+  -ms-flex-align: end
+  align-items: flex-end
+.middle-xs
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
 
 .pull-right
   float: right
@@ -70,8 +79,17 @@ ul
 $cols: 10
 @while $cols > 0
   .col-#{$cols}0
-    width: 10% * ($cols)
+    -webkit-flex-basis: 10% * ($cols)
+    -ms-flex-preferred-size: 10% * ($cols)
+    flex-basis: 10% * ($cols)
+    max-width: 10% * ($cols)
   $cols: $cols - 1
+
+.col-one-sixth
+  -webkit-flex-basis: 16.667%
+  -ms-flex-preferred-size: 16.667%
+  flex-basis: 16.667%
+  max-width: 16.667%
 
 .align-center-vertical
   display: -webkit-box
@@ -95,7 +113,21 @@ nav
   right: 0
   top: 0
   z-index: 3
-  padding: 50px 50px 0
+  padding: 30px 50px 0
+  .logo
+    img, a
+      transition: all .4s
+      vertical-align: middle
+    a
+      margin-left: 30px
+      font-size: 14px
+      text-transform: uppercase
+      text-decoration: none
+      color: #fff
+      padding-left: 20px
+      border-left: 2px solid
+      &:hover
+        opacity: .7
   .ux-navigation
     list-style: none
     li
@@ -107,17 +139,16 @@ nav
       & + li
         margin-left: 50px
       a
+        transition: all .4s
         color: #fff
         text-decoration: none
         display: block
         opacity: 1
-        transition: opacity .4s
         &:hover
-          // color: rgba(0,0,0,.5)
           opacity: .5
       &.active
         a
-          color: rgba(0,0,0,.7)
+          color: rgba(#000,.7)
           position: relative
           opacity: 1
           &:after
@@ -126,7 +157,7 @@ nav
             left: 0
             right: 0
             bottom: -10px
-            border-bottom: 3px solid rgba(0,0,0,.3)
+            border-bottom: 3px solid rgba(#000,.3)
 
 .text-center
   text-align: center
@@ -189,18 +220,18 @@ nav
   font-size: 18px
   font-weight: 700
   text-transform: uppercase
-  color: rgba(0,0,0,.7)
+  color: rgba(#000,.7)
   transition: background-color .4s
   border: 0
   &:hover
     background-color: rgba(255,255,255,.7)
   &:active
-    transform: translateY(3px)
+    transform: translateY(2px)
 
   &.is-hidden
     display: none
   &.is-filled
-    background-color: #e8ab2b
+    background-color: $color-yellow
     color: #fff
 * + .scene-control
   margin-top: 50px
@@ -293,82 +324,112 @@ nav
   bottom: 50px
   left: 50%
   transform: translate(-50%, 0px)
-  height: 2px
-  background: #cb7424
-  width: 50%
+  width: 30%
+  transition: all .4s
+  text-align: center
   display: none
-  &.is-visible
-    display: table
-    animation: paginationAppear .5s
-  .bar
-    display: table-cell
-    height: 2px
+  .align-center-vertical
     position: relative
-    vertical-align: bottom
-    &.first
-      width: 1px
+    height: 50px
+  &.is-visible
+    display: block
+    animation: paginationAppear .5s
     button
-      cursor: pointer
-      position: absolute
-      right: 0
-      width: 10px
-      height: 10px
-      padding: 0
-      right: -4px
-      bottom: -4px
-      transition: transform .4s
-      transform: scale(0)
-      border: none
       border-radius: 100%
-      background-color: #000
+      cursor: pointer
+      right: 0
+      padding: 0
+      width: 6px
+      height: 6px
       outline: none
-      &:before
-        outline: none
-        content: ''
-        transition: opacity .8s
-        background: #000
-        transform: scale(1)
-        opacity: .5
+      transition: all .4s
+      background-color: rgba(#fff, .2)
+      border: none
+      pointer-events: none
+      .scene-name
         position: absolute
-        width: 10px
-        height: 10px
-        border-radius: 100%
-        pointer-events: none
-        left: 4px
-        top: 4px
-  &-indicator
-    height: 2px
-    background: rgba(0,0,0,.5)
-    transition: width .3s
-    width: 0
-    &.was-active
-      & + button
-        transform: scale(1)
-        &:before
-          transform: scale(50)
+        display: none
+        font-family: $font-highlight
+        font-size: 10px
+        text-align: center
+        color: #fff
+        left: 50%
+        top: 50%
+        transform: translate(-50%,-50%)
+        text-transform: uppercase
+        transition: all .4s
+        width: 100%
+        small
+          text-transform: lowercase
+      &.was-active
+        box-sizing: content-box
+        width: 30px
+        height: 30px
+        right: -15px
+        bottom: -15px
+        pointer-events: auto
+        &[data-scene="2"]
+          transition-delay: 2s
+        &[data-bar="3"]
+          transition-delay: 3.5s
+        &[data-bar="4"]
+          transition-delay: 10.5s
+        &[data-bar="5"], &[data-bar="6"]
+          transition-delay: 4.22s
+        .scene-name
+          display: block
           opacity: 0
+        &:hover
+          .scene-name
+            opacity: 1
+            transition-delay: 0s
 
-    &[data-bar="2"]
-      transition-duration: 2s
-      & + button, & + button:before
-        transition-delay: 2s
-    &[data-bar="3"]
-      transition-duration: 3.5s
-      & + button, & + button:before
-        transition-delay: 3.5s
-    &[data-bar="4"]
-      transition-duration: 10.5s
-      & + button, & + button:before
-        transition-delay: 10.5s
-    &[data-bar="5"], &[data-bar="6"]
-      transition-duration: 4.22s
-      & + button, & + button:before
-        transition-delay: 4.22s
+.scene-playing-1 .progress button[data-scene="scene1"],
+.scene-playing-2 .progress button[data-scene="scene2"],
+.scene-playing-3 .progress button[data-scene="scene3"],
+.scene-playing-4 .progress button[data-scene="scene4"],
+.scene-playing-5 .progress button[data-scene="scene4"],
+.scene-playing-6 .progress button[data-scene="scene6"],
+.scene-playing-7 .progress button[data-scene="scene7"]
+  width: 50px
+  height: 50px
+  right: -25px
+  bottom: -25px
+  .scene-name
+    display: block
+    opacity: 1
 
+
+.scene-playing-3
+  .logo
+    img
+      filter: invert(70%)
+      transition-delay: 3.5s
+    a
+      color: rgba(#000,.7)
+      transition-delay: 3.5s
+  .ux-navigation
+    li
+      a
+        transition-delay: 3s
+  .progress button
+    background-color: rgba($color-yellow, .7)
+    .scene-name
+      color: rgba(#000,.7)
+
+.scene-playing-3,
+.scene-playing-4
+  .ux-navigation
+    li
+      a
+        color: rgba(#000,.7)
+
+
+// Animations
 @keyframes paginationAppear
   0%
     opacity: 0
-    transform: translate(-50%, 20px)
+    transform: translate(-50%, 50px)
   100%
     opacity: 1
     transform: translate(-50%, 0px)

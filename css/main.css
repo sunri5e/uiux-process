@@ -65,7 +65,7 @@ body {
   font-weight: 400;
   line-height: 30px;
   color: #fff;
-  background: url("../img/1_scene0000.jpg"), #e48c06; }
+  background: #e79e11; }
 
 ul {
   margin: 0;
@@ -87,52 +87,108 @@ ul {
   margin: 0 auto; }
 
 .row {
-  margin-left: -10px;
-  margin-right: -10px; }
-  .row:before, .row:after {
-    content: '';
-    display: table-cell; }
-  .row:after {
-    clear: both; }
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  -webkit-box-flex: 0;
+          flex: 0 1 auto;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
 
-*[class^="col-"] {
-  min-height: 1px;
-  float: left;
-  padding-left: 10px;
-  padding-right: 10px; }
+.bottom-xs {
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  -webkit-box-align: end;
+              -ms-grid-row-align: flex-end;
+          align-items: flex-end; }
+
+.middle-xs {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+              -ms-grid-row-align: center;
+          align-items: center; }
 
 .pull-right {
   float: right; }
 
 .col-100 {
-  width: 100%; }
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  max-width: 100%; }
 
 .col-90 {
-  width: 90%; }
+  -webkit-flex-basis: 90%;
+  -ms-flex-preferred-size: 90%;
+  flex-basis: 90%;
+  max-width: 90%; }
 
 .col-80 {
-  width: 80%; }
+  -webkit-flex-basis: 80%;
+  -ms-flex-preferred-size: 80%;
+  flex-basis: 80%;
+  max-width: 80%; }
 
 .col-70 {
-  width: 70%; }
+  -webkit-flex-basis: 70%;
+  -ms-flex-preferred-size: 70%;
+  flex-basis: 70%;
+  max-width: 70%; }
 
 .col-60 {
-  width: 60%; }
+  -webkit-flex-basis: 60%;
+  -ms-flex-preferred-size: 60%;
+  flex-basis: 60%;
+  max-width: 60%; }
 
 .col-50 {
-  width: 50%; }
+  -webkit-flex-basis: 50%;
+  -ms-flex-preferred-size: 50%;
+  flex-basis: 50%;
+  max-width: 50%; }
 
 .col-40 {
-  width: 40%; }
+  -webkit-flex-basis: 40%;
+  -ms-flex-preferred-size: 40%;
+  flex-basis: 40%;
+  max-width: 40%; }
 
 .col-30 {
-  width: 30%; }
+  -webkit-flex-basis: 30%;
+  -ms-flex-preferred-size: 30%;
+  flex-basis: 30%;
+  max-width: 30%; }
 
 .col-20 {
-  width: 20%; }
+  -webkit-flex-basis: 20%;
+  -ms-flex-preferred-size: 20%;
+  flex-basis: 20%;
+  max-width: 20%; }
 
 .col-10 {
-  width: 10%; }
+  -webkit-flex-basis: 10%;
+  -ms-flex-preferred-size: 10%;
+  flex-basis: 10%;
+  max-width: 10%; }
+
+.col-one-sixth {
+  -webkit-flex-basis: 16.667%;
+  -ms-flex-preferred-size: 16.667%;
+  flex-basis: 16.667%;
+  max-width: 16.667%; }
 
 .align-center-vertical {
   display: -webkit-box;
@@ -156,7 +212,21 @@ nav {
   right: 0;
   top: 0;
   z-index: 3;
-  padding: 50px 50px 0; }
+  padding: 30px 50px 0; }
+  nav .logo img, nav .logo a {
+    -webkit-transition: all .4s;
+    transition: all .4s;
+    vertical-align: middle; }
+  nav .logo a {
+    margin-left: 30px;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    padding-left: 20px;
+    border-left: 2px solid; }
+    nav .logo a:hover {
+      opacity: .7; }
   nav .ux-navigation {
     list-style: none; }
     nav .ux-navigation li {
@@ -168,12 +238,12 @@ nav {
       nav .ux-navigation li + li {
         margin-left: 50px; }
       nav .ux-navigation li a {
+        -webkit-transition: all .4s;
+        transition: all .4s;
         color: #fff;
         text-decoration: none;
         display: block;
-        opacity: 1;
-        -webkit-transition: opacity .4s;
-        transition: opacity .4s; }
+        opacity: 1; }
         nav .ux-navigation li a:hover {
           opacity: .5; }
       nav .ux-navigation li.active a {
@@ -273,9 +343,9 @@ nav {
   .scene-control:hover {
     background-color: rgba(255, 255, 255, 0.7); }
   .scene-control:active {
-    -webkit-transform: translateY(3px);
-        -ms-transform: translateY(3px);
-            transform: translateY(3px); }
+    -webkit-transform: translateY(2px);
+        -ms-transform: translateY(2px);
+            transform: translateY(2px); }
   .scene-control.is-hidden {
     display: none; }
   .scene-control.is-filled {
@@ -377,105 +447,129 @@ nav {
   -webkit-transform: translate(-50%, 0px);
       -ms-transform: translate(-50%, 0px);
           transform: translate(-50%, 0px);
-  height: 2px;
-  background: #cb7424;
-  width: 50%;
+  width: 30%;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+  text-align: center;
   display: none; }
+  .progress .align-center-vertical {
+    position: relative;
+    height: 50px; }
   .progress.is-visible {
-    display: table;
+    display: block;
     -webkit-animation: paginationAppear .5s;
             animation: paginationAppear .5s; }
-  .progress .bar {
-    display: table-cell;
-    height: 2px;
-    position: relative;
-    vertical-align: bottom; }
-    .progress .bar.first {
-      width: 1px; }
-    .progress .bar button {
-      cursor: pointer;
-      position: absolute;
-      right: 0;
-      width: 10px;
-      height: 10px;
-      padding: 0;
-      right: -4px;
-      bottom: -4px;
-      -webkit-transition: -webkit-transform .4s;
-      transition: -webkit-transform .4s;
-      transition: transform .4s;
-      transition: transform .4s, -webkit-transform .4s;
-      -webkit-transform: scale(0);
-          -ms-transform: scale(0);
-              transform: scale(0);
-      border: none;
+    .progress.is-visible button {
       -webkit-border-radius: 100%;
               border-radius: 100%;
-      background-color: #000;
-      outline: none; }
-      .progress .bar button:before {
-        outline: none;
-        content: '';
-        -webkit-transition: opacity .8s;
-        transition: opacity .8s;
-        background: #000;
-        -webkit-transform: scale(1);
-            -ms-transform: scale(1);
-                transform: scale(1);
-        opacity: .5;
+      cursor: pointer;
+      right: 0;
+      padding: 0;
+      width: 6px;
+      height: 6px;
+      outline: none;
+      -webkit-transition: all .4s;
+      transition: all .4s;
+      background-color: rgba(255, 255, 255, 0.2);
+      border: none;
+      pointer-events: none; }
+      .progress.is-visible button .scene-name {
         position: absolute;
-        width: 10px;
-        height: 10px;
-        -webkit-border-radius: 100%;
-                border-radius: 100%;
-        pointer-events: none;
-        left: 4px;
-        top: 4px; }
-  .progress-indicator {
-    height: 2px;
-    background: rgba(0, 0, 0, 0.5);
-    -webkit-transition: width .3s;
-    transition: width .3s;
-    width: 0; }
-    .progress-indicator.was-active + button {
-      -webkit-transform: scale(1);
-          -ms-transform: scale(1);
-              transform: scale(1); }
-      .progress-indicator.was-active + button:before {
-        -webkit-transform: scale(50);
-            -ms-transform: scale(50);
-                transform: scale(50);
-        opacity: 0; }
-    .progress-indicator[data-bar="2"] {
-      -webkit-transition-duration: 2s;
-              transition-duration: 2s; }
-      .progress-indicator[data-bar="2"] + button, .progress-indicator[data-bar="2"] + button:before {
-        -webkit-transition-delay: 2s;
-                transition-delay: 2s; }
-    .progress-indicator[data-bar="3"] {
-      -webkit-transition-duration: 3.5s;
-              transition-duration: 3.5s; }
-      .progress-indicator[data-bar="3"] + button, .progress-indicator[data-bar="3"] + button:before {
-        -webkit-transition-delay: 3.5s;
-                transition-delay: 3.5s; }
-    .progress-indicator[data-bar="4"] {
-      -webkit-transition-duration: 10.5s;
-              transition-duration: 10.5s; }
-      .progress-indicator[data-bar="4"] + button, .progress-indicator[data-bar="4"] + button:before {
-        -webkit-transition-delay: 10.5s;
-                transition-delay: 10.5s; }
-    .progress-indicator[data-bar="5"], .progress-indicator[data-bar="6"] {
-      -webkit-transition-duration: 4.22s;
-              transition-duration: 4.22s; }
-      .progress-indicator[data-bar="5"] + button, .progress-indicator[data-bar="5"] + button:before, .progress-indicator[data-bar="6"] + button, .progress-indicator[data-bar="6"] + button:before {
-        -webkit-transition-delay: 4.22s;
-                transition-delay: 4.22s; }
+        display: none;
+        font-family: "Montserrat", sans-serif;
+        font-size: 10px;
+        text-align: center;
+        color: #fff;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+        text-transform: uppercase;
+        -webkit-transition: all .4s;
+        transition: all .4s;
+        width: 100%; }
+        .progress.is-visible button .scene-name small {
+          text-transform: lowercase; }
+      .progress.is-visible button.was-active {
+        -webkit-box-sizing: content-box;
+           -moz-box-sizing: content-box;
+                box-sizing: content-box;
+        width: 30px;
+        height: 30px;
+        right: -15px;
+        bottom: -15px;
+        pointer-events: auto; }
+        .progress.is-visible button.was-active[data-scene="2"] {
+          -webkit-transition-delay: 2s;
+                  transition-delay: 2s; }
+        .progress.is-visible button.was-active[data-bar="3"] {
+          -webkit-transition-delay: 3.5s;
+                  transition-delay: 3.5s; }
+        .progress.is-visible button.was-active[data-bar="4"] {
+          -webkit-transition-delay: 10.5s;
+                  transition-delay: 10.5s; }
+        .progress.is-visible button.was-active[data-bar="5"], .progress.is-visible button.was-active[data-bar="6"] {
+          -webkit-transition-delay: 4.22s;
+                  transition-delay: 4.22s; }
+        .progress.is-visible button.was-active .scene-name {
+          display: block;
+          opacity: 0; }
+        .progress.is-visible button.was-active:hover .scene-name {
+          opacity: 1;
+          -webkit-transition-delay: 0s;
+                  transition-delay: 0s; }
+
+.scene-playing-1 .progress button[data-scene="scene1"],
+.scene-playing-2 .progress button[data-scene="scene2"],
+.scene-playing-3 .progress button[data-scene="scene3"],
+.scene-playing-4 .progress button[data-scene="scene4"],
+.scene-playing-5 .progress button[data-scene="scene4"],
+.scene-playing-6 .progress button[data-scene="scene6"],
+.scene-playing-7 .progress button[data-scene="scene7"] {
+  width: 50px;
+  height: 50px;
+  right: -25px;
+  bottom: -25px; }
+  .scene-playing-1 .progress button[data-scene="scene1"] .scene-name,
+  .scene-playing-2 .progress button[data-scene="scene2"] .scene-name,
+  .scene-playing-3 .progress button[data-scene="scene3"] .scene-name,
+  .scene-playing-4 .progress button[data-scene="scene4"] .scene-name,
+  .scene-playing-5 .progress button[data-scene="scene4"] .scene-name,
+  .scene-playing-6 .progress button[data-scene="scene6"] .scene-name,
+  .scene-playing-7 .progress button[data-scene="scene7"] .scene-name {
+    display: block;
+    opacity: 1; }
+
+.scene-playing-3 .logo img {
+  -webkit-filter: invert(70%);
+          filter: invert(70%);
+  -webkit-transition-delay: 3.5s;
+          transition-delay: 3.5s; }
+
+.scene-playing-3 .logo a {
+  color: rgba(0, 0, 0, 0.7);
+  -webkit-transition-delay: 3.5s;
+          transition-delay: 3.5s; }
+
+.scene-playing-3 .ux-navigation li a {
+  -webkit-transition-delay: 3s;
+          transition-delay: 3s; }
+
+.scene-playing-3 .progress button {
+  background-color: rgba(232, 171, 43, 0.7); }
+  .scene-playing-3 .progress button .scene-name {
+    color: rgba(0, 0, 0, 0.7); }
+
+.scene-playing-3 .ux-navigation li a,
+.scene-playing-4 .ux-navigation li a {
+  color: rgba(0, 0, 0, 0.7); }
 
 @-webkit-keyframes paginationAppear {
   0% {
     opacity: 0;
-    -webkit-transform: translate(-50%, 20px);
-            transform: translate(-50%, 20px); }
+    -webkit-transform: translate(-50%, 50px);
+            transform: translate(-50%, 50px); }
   100% {
     opacity: 1;
     -webkit-transform: translate(-50%, 0px);
@@ -484,8 +578,8 @@ nav {
 @keyframes paginationAppear {
   0% {
     opacity: 0;
-    -webkit-transform: translate(-50%, 20px);
-            transform: translate(-50%, 20px); }
+    -webkit-transform: translate(-50%, 50px);
+            transform: translate(-50%, 50px); }
   100% {
     opacity: 1;
     -webkit-transform: translate(-50%, 0px);
