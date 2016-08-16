@@ -1,10 +1,13 @@
 "use strict";
 
+
 /* --------------
   Playing video to canvas 
   ----------------*/
 
 var receiver = document.getElementById('receiver'),
+    bodya = document.getElementById('body'),
+    lastPlayedScene = 1,
     ctx = receiver.getContext('2d'),
     video = document.getElementById('translator'),
     videoSource = {
@@ -117,7 +120,7 @@ function showContentSection(arr, interimClass, newClass, skipItem) {
   if (skippedItem) {
     replaceClass(skippedItem[0], 'is-open', interimClass);
   }
-
+  addClass(bodya, 'in-transition');
   setTimeout(function(){
     skippedItem = document.querySelectorAll('[data-for="'+skipItem+'"]');
     for (let i = 0; i < arr.length; i++) {
@@ -126,6 +129,9 @@ function showContentSection(arr, interimClass, newClass, skipItem) {
     setTimeout(function(){
       if (skippedItem.length != 0) {
         replaceClass(skippedItem[0], newClass, 'is-open');
+        removeClass(bodya, 'in-transition');
+      } else {
+        removeClass(bodya, 'in-transition');
       }
     }, 250);
   }, 500);
@@ -155,6 +161,7 @@ function playVideo(scene, videoNum) {
 
 function sceneOutro(outroEl, outroModifier, baseModifier) {
   video.onloadedmetadata = function() {
+    addClass(bodya, 'in-transition');
     currentVideoDuration = video.duration * 1000;
     setTimeout(function(){
       replaceClass(outroEl, 'is-hidden', outroModifier);
@@ -162,7 +169,10 @@ function sceneOutro(outroEl, outroModifier, baseModifier) {
       if (baseModifier) {
         setTimeout(function(){
           replaceClass(receiver, 'is-visible', baseModifier);
+          removeClass(bodya, 'in-transition');
         }, 500);
+      } else {
+        removeClass(bodya, 'in-transition');
       }
     }, currentVideoDuration);
   };
@@ -226,20 +236,20 @@ function replaceVideoSource(scene, handler) {
 function init() {
   var pagination = document.getElementById('pagination');
   pagination.classList.add('is-visible');
+
   for (let i = 0; i < control.length; i++) {
     control[i].onclick = function(e) {
       e.preventDefault();
       playingScene = this.getAttribute("data-scene");
 
       var vidCurrentTime = Math.round(video.currentTime * 1000),
-          newText = parseInt(playingScene.substring(5));
+          newSceneNum = parseInt(playingScene.substring(5));
 
       video.removeEventListener('ended', sceneHandler, false);
-
       sceneHandler = handleVideoSource(playingScene);
-
       setTimeout(function() {
-        var progressIndicator = document.querySelectorAll('.scene-pager[data-scene="scene'+newText+'"]');
+
+        var progressIndicator = document.querySelectorAll('.scene-pager[data-scene="scene'+newSceneNum+'"]');
         if (progressIndicator[0] !== undefined) {
           progressIndicator[0].classList.remove("was-active");
           progressIndicator[0].classList.add("was-active");
@@ -253,12 +263,14 @@ function init() {
         replaceVideoSource(playingScene, sceneHandler);
         // check if scene has intro part, otherwise go ahead
         if (videoSource[playingScene].intro) {
-          sceneIntro(videoSource[playingScene].intro, 'is-third', 'is-two-thirds', newText);
+          sceneIntro(videoSource[playingScene].intro, 'is-third', 'is-two-thirds', newSceneNum);
         } else {
-          showContentSection(textSections, 'is-hiding', 'is-hidden', newText);
+          showContentSection(textSections, 'is-hiding', 'is-hidden', newSceneNum);
         }
-        document.getElementById('body').classList = ['scene-playing-'+ newText]
+        replaceClass(bodya, 'scene-playing-'+ lastPlayedScene, 'scene-playing-'+ newSceneNum);
         var allPagers = document.querySelectorAll('.scene-pager');
+
+        lastPlayedScene = newSceneNum;
       }, currentVideoDuration - vidCurrentTime);
     }
   }

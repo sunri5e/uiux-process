@@ -24,10 +24,12 @@
     background-color: #8F859B
 
 .envelope-container
-  top: 50%
+  top: 55%
   left: 50%
   transform: translate(-50%, -50%)
   transition: all .4s linear
+  @media (min-width: 1025px)
+    top: 50%
 
 .envelope
   width: 758px
@@ -73,14 +75,20 @@
     transition: height .1s 0s linear
 .btn
   padding: 15px 30px
+  min-width: 150px
+  font-size: 16px
+  font-weight: 300
   cursor: pointer
   border: none
   border-radius: 3px
-  background: $color-yellow
+  background: $color-action
   color: white
-  transition: all .4s linear
+  outline: none
+  transition: background-color .4s linear
   &:hover
-    background: #de9811
+    background: darken($color-action, 5%)
+  &:active
+    transform: translateY(1px)
 
 .contact-form
   position: absolute
@@ -115,12 +123,13 @@
       border-color: #9C9C9C
   textarea
     resize: none
-    height: 250px
+    height: 220px
+    @media (min-width: 1367px)
+      height: 250px
 
 
 .contact-form form input,
-.contact-form form textarea,
-.envelope button
+.contact-form form textarea
   font-weight: 300
   font-size: 16px
   outline: 0
@@ -145,7 +154,7 @@
   position: relative
   &.is-hidden
     .envelope-container
-      top: 150%
+      top: 200%
     .contact-form
       z-index: 2
       bottom: 20px
@@ -179,6 +188,27 @@
     font-size: 18px
     font-weight: 300
 
+.contact-us-text
+  position: fixed
+  top: 16%
+  left: 20%
+  right: 20%
+  opacity: 0
+  transition: all $transition-time-general 1s
+  z-index: 5
+  .section-title
+    font-size: 36px
+  p
+    margin-top: 0
+  .is-open &
+    top: 13%
+    opacity: 1
+    @media (min-width: 1367px)
+      top: 14%
+
+  .submitting &, .flying &
+    opacity: 0
+    transition: all $transition-time-general 0s
 
 @keyframes letterAppear
   0

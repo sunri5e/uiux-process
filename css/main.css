@@ -83,9 +83,12 @@ ul {
 
 p {
   font-family: "PT Serif", serif;
-  font-size: 21px;
   font-weight: 400;
-  line-height: 1.6; }
+  line-height: 1.6;
+  font-size: 18px; }
+  @media (min-width: 1367px) {
+    p {
+      font-size: 21px; } }
 
 .container {
   max-width: 1400px;
@@ -239,11 +242,17 @@ nav {
     nav .ux-navigation li {
       text-transform: uppercase;
       display: inline-block;
-      font-size: 18px; }
+      font-size: 14px; }
+      @media (min-width: 1367px) {
+        nav .ux-navigation li {
+          font-size: 18px; } }
       nav .ux-navigation li:before {
         content: none; }
       nav .ux-navigation li + li {
-        margin-left: 50px; }
+        margin-left: 10px; }
+        @media (min-width: 1367px) {
+          nav .ux-navigation li + li {
+            margin-left: 50px; } }
       nav .ux-navigation li a {
         -webkit-transition: all 0.5s;
         transition: all 0.5s;
@@ -289,7 +298,8 @@ nav {
             transform: translate(50%, -50%); }
 
 .scene-text {
-  width: 540px;
+  width: 40%;
+  margin-left: 5%;
   position: absolute;
   top: 50%;
   -webkit-transform: translate(0, -50%);
@@ -297,6 +307,10 @@ nav {
           transform: translate(0, -50%);
   -webkit-transition: opacity 0.5s, margin 0.5s;
   transition: opacity 0.5s, margin 0.5s; }
+  @media (min-width: 1367px) {
+    .scene-text {
+      width: 540px;
+      margin-left: 0; } }
   .scene-text.with-left-position {
     left: 0; }
   .scene-text.with-right-position {
@@ -318,13 +332,22 @@ nav {
   -webkit-transform: translate(0, -50%);
       -ms-transform: translate(0, -50%);
           transform: translate(0, -50%); }
+  @media (max-width: 1366px) {
+    .scene-gfx {
+      width: 50%; }
+      .is-third .scene-gfx {
+        width: 100%; }
+      .scene-gfx > img.will-hide {
+        max-width: 28%;
+        float: left;
+        margin: 0 2.5%; } }
   .scene-gfx > img {
-    display: inline-block;
-    margin: 0 15px;
     -webkit-transition: margin 0.5s, -webkit-transform 0.5s 0.3s;
     transition: margin 0.5s, -webkit-transform 0.5s 0.3s;
     transition: margin 0.5s, transform 0.5s 0.3s;
-    transition: margin 0.5s, transform 0.5s 0.3s, -webkit-transform 0.5s 0.3s; }
+    transition: margin 0.5s, transform 0.5s 0.3s, -webkit-transform 0.5s 0.3s;
+    display: inline-block;
+    margin: 0 15px; }
     .scene-gfx > img.first {
       position: relative;
       top: 15px; }
@@ -380,11 +403,14 @@ nav {
 
 .section-title {
   font-family: "Montserrat", sans-serif;
-  font-size: 60px;
+  font-size: 48px;
   font-weight: 700;
   margin: 0;
   text-transform: uppercase;
   line-height: 1; }
+  @media (min-width: 1367px) {
+    .section-title {
+      font-size: 60px; } }
   .section-title + * {
     margin-top: 30px; }
 
@@ -454,8 +480,12 @@ nav {
   .blueprint.is-open {
     left: 0; }
   .blueprint.is-third {
-    left: 66%;
-    width: 34%; }
+    left: 50%;
+    width: 50%; }
+    @media (min-width: 1367px) {
+      .blueprint.is-third {
+        left: 66%;
+        width: 34%; } }
     .blueprint.is-third .scene-text.with-left-position {
       display: none; }
     .blueprint.is-third .scene-gfx {
@@ -467,7 +497,12 @@ nav {
         margin: 0 auto; }
       .blueprint.is-third .scene-gfx > img.is-selected {
         position: relative;
-        top: -50px; }
+        width: 250px;
+        top: -35px; }
+        @media (min-width: 1367px) {
+          .blueprint.is-third .scene-gfx > img.is-selected {
+            width: auto;
+            top: -50px; } }
 
 .progress {
   position: fixed;
@@ -487,8 +522,8 @@ nav {
     height: 50px; }
   .progress.is-visible {
     display: block;
-    -webkit-animation: paginationAppear 0.5s;
-            animation: paginationAppear 0.5s; }
+    -webkit-animation: transcendUp 0.5s;
+            animation: transcendUp 0.5s; }
     .progress.is-visible button {
       cursor: pointer;
       padding: 0;
@@ -500,6 +535,8 @@ nav {
       border: none;
       pointer-events: none;
       position: relative; }
+      .in-transition .progress.is-visible button {
+        pointer-events: none !important; }
       .progress.is-visible button:before {
         content: '';
         position: absolute;
@@ -631,7 +668,7 @@ nav {
 .scene-playing-8 #receiver {
   opacity: 0; }
 
-@-webkit-keyframes paginationAppear {
+@-webkit-keyframes transcendUp {
   0% {
     opacity: 0;
     -webkit-transform: translate(-50%, 50px);
@@ -641,7 +678,7 @@ nav {
     -webkit-transform: translate(-50%, 0px);
             transform: translate(-50%, 0px); } }
 
-@keyframes paginationAppear {
+@keyframes transcendUp {
   0% {
     opacity: 0;
     -webkit-transform: translate(-50%, 50px);
@@ -682,13 +719,16 @@ nav {
     background-color: #8F859B; }
 
 .envelope-container {
-  top: 50%;
+  top: 55%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   -webkit-transition: all .4s linear;
   transition: all .4s linear; }
+  @media (min-width: 1025px) {
+    .envelope-container {
+      top: 50%; } }
 
 .envelope {
   width: 758px;
@@ -740,16 +780,24 @@ nav {
 
 .btn {
   padding: 15px 30px;
+  min-width: 150px;
+  font-size: 16px;
+  font-weight: 300;
   cursor: pointer;
   border: none;
   -webkit-border-radius: 3px;
           border-radius: 3px;
-  background: #e8ab2b;
+  background: #785ae6;
   color: white;
-  -webkit-transition: all .4s linear;
-  transition: all .4s linear; }
+  outline: none;
+  -webkit-transition: background-color .4s linear;
+  transition: background-color .4s linear; }
   .btn:hover {
-    background: #de9811; }
+    background: #6644e3; }
+  .btn:active {
+    -webkit-transform: translateY(1px);
+        -ms-transform: translateY(1px);
+            transform: translateY(1px); }
 
 .contact-form {
   position: absolute;
@@ -792,11 +840,13 @@ nav {
       border-color: #9C9C9C; }
   .contact-form textarea {
     resize: none;
-    height: 250px; }
+    height: 220px; }
+    @media (min-width: 1367px) {
+      .contact-form textarea {
+        height: 250px; } }
 
 .contact-form form input,
-.contact-form form textarea,
-.envelope button {
+.contact-form form textarea {
   font-weight: 300;
   font-size: 16px;
   outline: 0;
@@ -820,7 +870,7 @@ nav {
 .get-in-touch {
   position: relative; }
   .get-in-touch.is-hidden .envelope-container {
-    top: 150%; }
+    top: 200%; }
   .get-in-touch.is-hidden .contact-form {
     z-index: 2;
     bottom: 20px; }
@@ -860,6 +910,30 @@ nav {
   .success-message .small {
     font-size: 18px;
     font-weight: 300; }
+
+.contact-us-text {
+  position: fixed;
+  top: 16%;
+  left: 20%;
+  right: 20%;
+  opacity: 0;
+  -webkit-transition: all 0.5s 1s;
+  transition: all 0.5s 1s;
+  z-index: 5; }
+  .contact-us-text .section-title {
+    font-size: 36px; }
+  .contact-us-text p {
+    margin-top: 0; }
+  .is-open .contact-us-text {
+    top: 13%;
+    opacity: 1; }
+    @media (min-width: 1367px) {
+      .is-open .contact-us-text {
+        top: 14%; } }
+  .submitting .contact-us-text, .flying .contact-us-text {
+    opacity: 0;
+    -webkit-transition: all 0.5s 0s;
+    transition: all 0.5s 0s; }
 
 @-webkit-keyframes letterAppear {
   0 {
