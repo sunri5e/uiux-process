@@ -28,7 +28,7 @@ body
   font-weight: 400
   line-height: 30px
   color: $color-light
-  background: #e79e11
+  background: #e79e11 url(../img/noise.png)
   text-shadow: 0 2px 6px rgba(0,0,0,0.1)
 
 ul
@@ -45,6 +45,7 @@ ul
       text-indent: -20px
 
 p
+  font-family: $font-text
   font-size: 21px
   font-weight: 400
   line-height: 1.6
@@ -91,11 +92,11 @@ $cols: 10
     max-width: 10% * ($cols)
   $cols: $cols - 1
 
-.col-one-sixth
-  -webkit-flex-basis: 16.667%
-  -ms-flex-preferred-size: 16.667%
-  flex-basis: 16.667%
-  max-width: 16.667%
+.col-one-seventh
+  -webkit-flex-basis: 14.285%
+  -ms-flex-preferred-size: 14.285%
+  flex-basis: 14.285%
+  max-width: 14.285%
 
 .align-center-vertical
   display: -webkit-box
@@ -122,7 +123,7 @@ nav
   padding: 30px 50px 0
   .logo
     img, a
-      transition: all .4s
+      transition: all $transition-time-general
       vertical-align: middle
     a
       margin-left: 30px
@@ -145,7 +146,7 @@ nav
       & + li
         margin-left: 50px
       a
-        transition: all .4s
+        transition: all $transition-time-general
         color: #fff
         text-decoration: none
         display: block
@@ -226,7 +227,7 @@ nav
   color: rgba(#000, .4)
   font-size: 21px
   outline: none
-  transition: all .4s
+  transition: all $transition-time-general
   &:after
     content: ''
     position: absolute
@@ -235,14 +236,14 @@ nav
     border-color: transparent transparent transparent rgba(#000, .4)
     border-style: solid
     border-width: 5px
-    transition: all .4s
+    transition: all $transition-time-general
     top: 10px
     right: 5px
     transform: skew(-15deg)
   &.mod-bigger
-    font-size: 24px
+    font-size: 32px
     &:after
-      top: 12px
+      top: 20px
   &:hover
     color: rgba(#000, .7)
     &:after
@@ -263,6 +264,7 @@ nav
   font-size: 60px
   font-weight: 700
   margin: 0
+  text-transform: uppercase
   line-height: 1
   & + * 
     margin-top: 30px
@@ -284,7 +286,7 @@ nav
   height: 100%
   z-index: 3
   opacity: 1
-  transition: all .5s
+  transition: all $transition-time-general
   &.is-hidden
     top: -100%
     opacity: 0
@@ -322,6 +324,11 @@ nav
     display: none
   &.is-hidden
     left: 100%
+    &.is-hiding
+      .scene-text.with-left-position
+        display: none
+      .will-hide
+        display: none
   &.is-open
     left: 0
   &.is-third
@@ -337,18 +344,19 @@ nav
         display: block
         margin: 0 auto
       & > img.is-selected
-        margin-bottom: 100px
+        position: relative
+        top: -50px
 
 
 // Progress
 .progress
   position: fixed
   z-index: 10
-  bottom: 50px
+  bottom: 10px
   left: 50%
   transform: translate(-50%, 0px)
-  width: 30%
-  transition: all .4s
+  width: 80%
+  transition: all $transition-time-general
   text-align: center
   display: none
   .align-center-vertical
@@ -356,40 +364,40 @@ nav
     height: 50px
   &.is-visible
     display: block
-    animation: paginationAppear .5s
+    animation: paginationAppear $transition-time-general
     button
-      border-radius: 100%
       cursor: pointer
-      right: 0
       padding: 0
-      width: 6px
-      height: 6px
       outline: none
-      transition: all .4s
-      background-color: rgba(#fff, .2)
+      line-height: 1.6
+      transition: all $transition-time-general
+      background-color: transparent
       border: none
       pointer-events: none
-      .scene-name
+      position: relative
+      &:before
+        content: ''
         position: absolute
-        display: none
-        font-family: $font-highlight
-        font-size: 10px
+        left: calc(50% - 5px)
+        height: 0
+        border: 5px solid rgba(#000,0)
+        top: -15px
+        transition: border-color $transition-time-general 0s
+      .scene-name
+        font-family: $font-main
         text-align: center
-        color: #fff
-        left: 50%
-        top: 50%
-        transform: translate(-50%,-50%)
+        color: #e19d1e
         text-transform: uppercase
-        transition: all .4s
-        width: 100%
+        visibility: hidden
+        transition: opacity $transition-time-general 0s, color $transition-time-general 0s
+        display: block
+        width: 0
+        height: 0
         small
           text-transform: lowercase
       &.was-active
         box-sizing: content-box
-        width: 30px
-        height: 30px
-        right: -15px
-        bottom: -15px
+        font-size: 12px
         pointer-events: auto
         &[data-scene="2"]
           transition-delay: 2s
@@ -400,12 +408,17 @@ nav
         &[data-bar="5"], &[data-bar="6"]
           transition-delay: 4.22s
         .scene-name
-          display: block
-          opacity: 0
+          visibility: visible
+          color: rgba(#fff, .6)
+          width: 100%
+          height: auto
         &:hover
           .scene-name
-            opacity: 1
+            color: rgba(#000, .4)
             transition-delay: 0s
+      &:not(.was-active)
+        &:before
+          content: '...'
 
 .scene-playing-1 .progress button[data-scene="scene1"],
 .scene-playing-2 .progress button[data-scene="scene2"],
@@ -413,15 +426,17 @@ nav
 .scene-playing-4 .progress button[data-scene="scene4"],
 .scene-playing-5 .progress button[data-scene="scene4"],
 .scene-playing-6 .progress button[data-scene="scene6"],
-.scene-playing-7 .progress button[data-scene="scene7"]
-  width: 50px
-  height: 50px
-  right: -25px
-  bottom: -25px
+.scene-playing-7 .progress button[data-scene="scene7"],
+.scene-playing-8 .progress button[data-scene="scene8"],
+  pointer-events: none
+  &:before
+    border-bottom: 5px solid rgba(#000,.2)
   .scene-name
-    display: block
-    opacity: 1
-
+    visibility: visible
+    color: rgba(#000, .55)
+.scene-playing-3 .progress button[data-scene="scene3"]
+  &:before
+    border-bottom: 5px solid rgba(#000,.4)
 
 .scene-playing-3
   .logo
@@ -435,12 +450,19 @@ nav
     li
       a
         transition-delay: 3s
-  .progress button, .progress button.was-active
-    background-color: rgba($color-yellow, .7)
-    .scene-name.mod-delay
-      transition-delay: 3s
-      color: rgba(#000,.7)
-
+  .progress
+    button
+      &.was-active
+        &:before
+          transition: border-color $transition-time-general 3.3s
+        .scene-name
+          color: #e19d1e
+          transition: opacity $transition-time-general 0s, color $transition-time-general 3.3s
+          &.mod-delay
+            color: rgba(#000,.7)
+        &:hover
+          .scene-name
+            color: rgba(#000,.5)
 .scene-playing-4
   .scene-gfx.with-right-position
     position: relative
@@ -451,6 +473,14 @@ nav
     li
       a
         color: rgba(#000,.7)
+      &.active
+        a
+          color: $color-yellow
+          &:after
+            border-bottom: 3px solid $color-yellow
+
+.scene-playing-8 #receiver
+  opacity: 0
 
 
 // Animations

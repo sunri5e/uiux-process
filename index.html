@@ -51,22 +51,22 @@
     <!-- Prototyping section -->
     <section class="scene-section scene-text with-right-position is-hidden" data-for="5">
       <h2 class="section-title">PROTOTYPING</h2>
-      <p>Have a bright idea and want to check whether it would work with real people? Need to present something tangible to stakeholders? Want to make sure designers and developers are on the same page? Prototype!</p>
+      <p>Have a bright idea and want to check whether it would work with real people? Need to present something breathtaking to stakeholders? Want to make sure designers and developers are on the same page? Prototype!</p>
       <button tabindex="6" class="scene-control" data-scene="scene6">Visual Design</button>
     </section>
 
     <!-- Design section -->
     <section class="scene-section scene-text with-right-position is-hidden" data-for="6">
       <h2 class="section-title">VISUAL DESIGN</h2>
-      <p>The logical final step of enwrapping of all previous work into fancy and pleasant visual identity. Why is this important? Well, according to studies people tend to provide higher level of trust and toleration to visually appealing  products. Along with great overall experience visual design will result in happy and loyal customers. </p>
+      <p>The logical step of enwrapping of all previous work into fancy and pleasant visual identity. Why is this important? According to studies people tend to provide higher level of trust to attractive products. Combined with great overall experience visual design will result in happy and loyal customers. </p>
       <button tabindex="7" class="scene-control" data-scene="scene7">Test &amp; Iterate</button>
     </section>
 
     <!-- Iteration section -->
     <section class="scene-section scene-text with-right-position is-hidden" data-for="7">
       <h2 class="section-title">TEST AND ITERATE</h2>
-      <p>UX design is an iterative process. That's why after the each design phase we check whether the proposed solution solves user's problems. And iterate-iterate-iterate.</p>
-      <!-- <button tabindex="8" class="scene-control" data-scene="scene8">Continue</button> -->
+      <p>Improving of UX implies iterations. That's why after the each phase we check whether the proposed solution meets the users needs and iterate-iterate-iterate.</p>
+      <button tabindex="8" class="scene-control" data-scene="scene8">Lets get in touch</button>
     </section>
   </div>
 
@@ -84,6 +84,38 @@
         <img class="will-hide" src="img/wireframe-3d.png" alt="Wireframe 3d">
         <img class="will-show is-selected" src="img/wireframes.png" alt="Wireframe 3d">
       </div>
+    </div>
+  </section>
+
+
+  <section class="get-in-touch scene-section is-hidden" data-for="8">
+    <div class="envelope-container">
+      <div class="envelope">
+        <div class="cap"><div class="shadow"></div></div>
+        <div class="cap-closed"></div>
+        <div class="contact-form">
+          <form id="contactForm" novalidate="novalidate">
+            <div class="input-group">
+              <input type="text" name="FullName" placeholder="Your Name.." required="" aria-required="true">
+            </div>
+            <div class="input-group">
+              <input type="email" name="Email" placeholder="Email.." required="" aria-required="true">
+            </div>
+            <div class="input-group">
+              <textarea name="Message" placeholder="Your Message:" required="" aria-required="true"></textarea>
+            </div>
+            <div class="text-center">
+              <button id="submitEmail" type="button" class="btn">Get in touch!</button>
+            </div>
+          </form>
+        </div>
+        <div class="front"></div>
+      </div>
+    </div>
+    <div style="display: none" class="success-message">
+      <div class="section-title">Thanks!</div>
+      <p>We received your email,<br>and will get in touch with you soon!</p>
+      <button id="resend" class="scene-control">Send another one</button>
     </div>
   </section>
 
@@ -114,45 +146,52 @@
 
   <div id="pagination" class="progress">
     <div class="row middle-xs">
-      <div class="col-one-sixth">
+      <div class="col-one-seventh">
         <div class="align-center-vertical">
           <button class="scene-pager was-active" data-scene="scene1">
             <span class="scene-name">Research</span>
           </button>
         </div>
       </div>
-      <div class="col-one-sixth">
+      <div class="col-one-seventh">
         <div class="align-center-vertical">
           <button class="scene-pager" data-scene="scene2">
-            <span class="scene-name">IA</span>
+            <span class="scene-name">Information Architecture</span>
           </button>
         </div>
       </div>
-      <div class="col-one-sixth">
+      <div class="col-one-seventh">
         <div class="align-center-vertical">
           <button class="scene-pager" data-scene="scene3">
-            <span class="scene-name mod-delay">I<small>x</small>D &amp;<br>Wireframing</span>
+            <span class="scene-name mod-delay">I<small>x</small>D &amp; Wireframing</span>
           </button>
         </div>
       </div>
-      <div class="col-one-sixth">
+      <div class="col-one-seventh">
         <div class="align-center-vertical">
           <button class="scene-pager" data-scene="scene4">
             <span class="scene-name">Prototyping</span>
           </button>
         </div>
       </div>
-      <div class="col-one-sixth">
+      <div class="col-one-seventh">
         <div class="align-center-vertical">
           <button class="scene-pager" data-scene="scene6">
-            <span class="scene-name">Design</span>
+            <span class="scene-name">Visual Design</span>
           </button>
         </div>
       </div>
-      <div class="col-one-sixth">
+      <div class="col-one-seventh">
         <div class="align-center-vertical">
           <button class="scene-pager" data-scene="scene7">
-            <span class="scene-name">Test &amp;<br>Iterate</span>
+            <span class="scene-name">Test &amp; Iterate</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-one-seventh">
+        <div class="align-center-vertical">
+          <button class="scene-pager envelope-btn" data-scene="scene8">
+            <span class="scene-name">Get in touch </span>
           </button>
         </div>
       </div>
@@ -161,6 +200,7 @@
 
   <!-- Scripts -->
   <script  src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -58,6 +58,9 @@ var receiver = document.getElementById('receiver'),
                       ['video/scene7/1.mp4', 'video/scene7/1.webm', 'video/scene7/1.ogv'],
                     ],
         'loop' : true
+      },
+      'scene8': {
+        'sources' : [[]]
       }
     },
     i = 0,
@@ -288,3 +291,30 @@ receiver.setAttribute('height', window.innerWidth / 4 * 3);
 /* -----------------
   end Plaing video to canvas 
   -----------------*/
+
+// Submit mail animation
+$('#submitEmail').click(function(){
+  $('#contactForm').valid();
+  if ($('#contactForm').valid()) {
+    $('.get-in-touch').addClass('submitting');
+    $.post( "http://perfectial.com/home/contact/ux", $("#contactForm").serialize())
+      .done(function() {
+        //window.location = window.location + '#submitted';
+        dataLayer.push({'event': 'onFormSent'});
+        $('.get-in-touch').addClass('flying');
+        $('.success-message').fadeIn();
+      })
+      .fail(function() {
+        //alert( "error" );
+      });
+  }
+});
+
+$('#resend').click(function(){
+  $('.success-message').fadeOut();
+  $('.get-in-touch').removeClass('flying');
+  $('#contactForm input, #contactForm textarea').val('');
+  setTimeout(function(){
+    $('.get-in-touch').removeClass('submitting');
+  }, 1000);
+});
