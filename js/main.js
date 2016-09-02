@@ -64,6 +64,9 @@ var receiver = document.getElementById('receiver'),
       },
       'scene8': {
         'sources' : [[]]
+      },
+      'scene9': {
+        'sources' : [[]]
       }
     },
     i = 0,

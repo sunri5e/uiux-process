@@ -94,11 +94,11 @@ $cols: 10
     max-width: 10% * ($cols)
   $cols: $cols - 1
 
-.col-one-seventh
-  -webkit-flex-basis: 14.285%
-  -ms-flex-preferred-size: 14.285%
-  flex-basis: 14.285%
-  max-width: 14.285%
+.col-one-eights
+  -webkit-flex-basis: 12.5%
+  -ms-flex-preferred-size: 12.5%
+  flex-basis: 12.5%
+  max-width: 12.5%
 
 .align-center-vertical
   display: -webkit-box
@@ -125,6 +125,7 @@ nav
   padding: 30px 50px 0
   .logo
     img, a
+      cursor: pointer
       transition: all $transition-time-general
       vertical-align: middle
     a
@@ -211,6 +212,10 @@ nav
   &.is-hiding
     opacity: 0
     margin-left: 40px
+  &.middle-aligned
+    left: 30%
+    @media (min-width: 1367px)
+      left: calc(50% - (540px/2))
 
 .scene-gfx
   @media (max-width: 1366px)
@@ -263,6 +268,10 @@ nav
     font-size: 32px
     &:after
       top: 20px
+      animation: clickMe 2s infinite
+    &:hover
+      &:after
+        animation: none
   &:hover
     color: rgba(#000, .7)
     &:after
@@ -376,6 +385,23 @@ nav
           width: auto
           top: -50px
 
+.btn
+  padding: 15px 30px
+  min-width: 150px
+  font-size: 16px
+  font-weight: 300
+  cursor: pointer
+  border: none
+  border-radius: 3px
+  background: $color-action
+  color: white
+  outline: none
+  transition: background-color .4s linear
+  &:hover
+    background: darken($color-action, 5%)
+  &:active
+    transform: translateY(1px)
+
 // Progress
 .progress
   position: fixed
@@ -458,6 +484,7 @@ nav
 .scene-playing-6 .progress button[data-scene="scene6"],
 .scene-playing-7 .progress button[data-scene="scene7"],
 .scene-playing-8 .progress button[data-scene="scene8"],
+.scene-playing-9 .progress button[data-scene="scene9"],
   pointer-events: none
   &:before
     border-bottom: 5px solid rgba(#000,.2)
@@ -509,8 +536,10 @@ nav
           &:after
             border-bottom: 3px solid $color-yellow
 
-.scene-playing-8 #receiver
-  opacity: 0
+.scene-playing-8,
+.scene-playing-9
+  #receiver
+    opacity: 0
 
 // Animations
 @keyframes transcendUp
@@ -520,3 +549,12 @@ nav
   100%
     opacity: 1
     transform: translate(-50%, 0px)
+
+@keyframes clickMe
+  0%
+    transform: skew(-15deg) translateX(10px)
+  50%
+    transform: skew(-15deg) translateX(0px)
+  100%
+    transform: skew(-15deg) translateX(10px)
+
