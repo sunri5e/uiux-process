@@ -6,6 +6,7 @@
   ----------------*/
 
 var receiver = document.getElementById('receiver'),
+    doit,
     bodya = document.getElementById('body'),
     lastPlayedScene = 1,
     ctx = receiver.getContext('2d'),
@@ -298,10 +299,17 @@ function init() {
   }, 300);
 }
 
-receiver.setAttribute('width', window.innerWidth);
-receiver.setAttribute('height', window.innerWidth / 4 * 3);
+function resizeReceiver() {
+  receiver.setAttribute('width', window.innerWidth);
+  receiver.setAttribute('height', window.innerWidth / 4 * 3);
+}
 
+resizeReceiver();
 
+window.onresize = function(){
+  clearTimeout(doit);
+  doit = setTimeout(resizeReceiver, 100);
+};
 
 /* -----------------
   end Plaing video to canvas 

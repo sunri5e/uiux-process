@@ -65,10 +65,8 @@ body {
   font-weight: 400;
   line-height: 30px;
   color: #fff;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  background: #efa30b;
-  background: -webkit-linear-gradient(315deg, #efa30b 0%, #d99118 100%);
-  background: linear-gradient(135deg, #efa30b 0%, #d99118 100%); }
+  background: #e79e11 url(../img/noise.png);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); }
 
 ul {
   margin: 0;
@@ -225,55 +223,21 @@ nav {
   top: 0;
   z-index: 3;
   padding: 30px 50px 0; }
-  nav .logo .near-logo {
-    vertical-align: middle;
-    display: inline-block;
-    margin-left: 30px;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 21px;
-    line-height: 21px;
-    font-family: "Montserrat", sans-serif;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    padding-left: 20px;
-    border-left: 2px solid #fff;
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s; }
   nav .logo img, nav .logo a {
     cursor: pointer;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
     vertical-align: middle; }
   nav .logo a {
-    display: inline-block;
-    position: relative; }
-    nav .logo a .tooltip {
-      position: absolute;
-      background-color: #855b0a;
-      padding: 0 10px;
-      top: 100%;
-      left: 70px;
-      font-size: 12px;
-      color: #fff;
-      -webkit-border-radius: 5px;
-              border-radius: 5px;
-      white-space: nowrap;
-      display: none; }
-      nav .logo a .tooltip:before {
-        content: '';
-        width: 0;
-        height: 0;
-        position: absolute;
-        top: -10px;
-        left: 50%;
-        -webkit-transform: translateX(-50%);
-            -ms-transform: translateX(-50%);
-                transform: translateX(-50%);
-        border-style: solid;
-        border-width: 5px;
-        border-color: transparent transparent #855b0a; }
-    nav .logo a:hover .tooltip {
-      display: block; }
+    margin-left: 30px;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    padding-left: 20px;
+    border-left: 2px solid; }
+    nav .logo a:hover {
+      opacity: .7; }
   nav .ux-navigation {
     list-style: none; }
     nav .ux-navigation li {
@@ -694,17 +658,6 @@ nav {
 .scene-playing-3 .progress button[data-scene="scene3"]:before {
   border-bottom: 5px solid rgba(0, 0, 0, 0.4); }
 
-.scene-playing-3 .logo .tooltip {
-  background-color: #434343; }
-  .scene-playing-3 .logo .tooltip:before {
-    border-color: transparent #434343 transparent transparent; }
-
-.scene-playing-3 .logo .near-logo {
-  color: rgba(0, 0, 0, 0.7);
-  border-color: rgba(0, 0, 0, 0.7);
-  -webkit-transition-delay: 3.5s;
-          transition-delay: 3.5s; }
-
 .scene-playing-3 .logo img {
   -webkit-filter: invert(70%);
           filter: invert(70%);
@@ -793,261 +746,3 @@ nav {
   100% {
     -webkit-transform: skew(-15deg) translateX(10px);
             transform: skew(-15deg) translateX(10px); } }
-
-.contact-form form,
-.envelope,
-.envelope .cap .shadow {
-  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
-          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1); }
-
-.contact-us,
-.envelope-container {
-  position: fixed;
-  left: 50%;
-  z-index: 3; }
-
-.contact-us {
-  bottom: -50px;
-  line-height: 55px;
-  background-color: #AAA0B5;
-  width: 100px;
-  height: 100px;
-  color: #FFF;
-  -webkit-border-radius: 50% 50% 0 0;
-          border-radius: 50% 50% 0 0;
-  cursor: pointer;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
-  -webkit-transition: background-color .4s linear;
-  transition: background-color .4s linear; }
-  .contact-us:hover {
-    background-color: #8F859B; }
-
-.envelope-container {
-  top: 55%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  -webkit-transition: all .4s linear;
-  transition: all .4s linear; }
-  @media (min-width: 1025px) {
-    .envelope-container {
-      top: 50%; } }
-
-.envelope {
-  width: 758px;
-  height: 454px;
-  -webkit-border-radius: 20px;
-          border-radius: 20px;
-  margin: 0 auto;
-  background: url(../img/noise.png) #dddfe1;
-  position: relative; }
-  .envelope .front {
-    position: absolute;
-    z-index: 2;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    background-image: url(../img/envelope/03_envelope.png); }
-  .envelope .cap,
-  .envelope .cap-closed {
-    position: absolute;
-    left: 0;
-    right: 0;
-    overflow: hidden;
-    -webkit-border-radius: 20px;
-            border-radius: 20px;
-    background-repeat: no-repeat;
-    background-size: 100% 100%; }
-  .envelope .cap {
-    background-image: url(../img/envelope/01_envelope.png);
-    bottom: 454px;
-    height: 229px;
-    -webkit-transition: height .1s .1s linear;
-    transition: height .1s .1s linear; }
-    .envelope .cap .shadow {
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 20px;
-      bottom: 0;
-      -webkit-border-radius: 0 0 20px 20px;
-              border-radius: 0 0 20px 20px; }
-  .envelope .cap-closed {
-    background-image: url(../img/envelope/02_envelope.png);
-    top: 0;
-    height: 0;
-    z-index: 7;
-    -webkit-transition: height .1s 0s linear;
-    transition: height .1s 0s linear; }
-
-.contact-form {
-  position: absolute;
-  z-index: 3;
-  bottom: -40px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
-  -webkit-transition: all .4s .1s linear;
-  transition: all .4s .1s linear; }
-  .is-open .contact-form {
-    -webkit-animation: letterAppear 1s;
-            animation: letterAppear 1s; }
-  .submitting .contact-form {
-    -webkit-animation: letterHide 1s;
-            animation: letterHide 1s;
-    z-index: 2; }
-  .contact-form form {
-    width: 600px;
-    margin: 0 auto;
-    background: url(../img/noise.png) #fff;
-    padding: 30px 30px 20px; }
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-bottom: 10px;
-    padding: 20px 0;
-    font-family: Roboto, sans-serif;
-    border: none;
-    background-color: transparent;
-    -webkit-transition: all .4s linear;
-    transition: all .4s linear;
-    border-bottom: 1px solid #cdcdcd; }
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      border-color: #9C9C9C; }
-  .contact-form textarea {
-    resize: none;
-    height: 220px; }
-    @media (min-width: 1367px) {
-      .contact-form textarea {
-        height: 250px; } }
-
-.contact-form form input,
-.contact-form form textarea {
-  font-weight: 300;
-  font-size: 16px;
-  outline: 0;
-  -webkit-transition: all .4s linear;
-  transition: all .4s linear; }
-
-.input-group {
-  position: relative; }
-  .input-group label.error {
-    position: absolute;
-    color: #C66870;
-    right: 0;
-    top: 20px;
-    font-weight: 300; }
-  .input-group input:-webkit-autofill, .input-group textarea:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
-    -webkit-text-fill-color: #000 !important; }
-  .input-group input.error, .input-group textarea.error {
-    border-color: #C66870; }
-
-.get-in-touch {
-  position: relative; }
-  .get-in-touch.is-hidden .envelope-container {
-    top: 200%; }
-  .get-in-touch.is-hidden .contact-form {
-    z-index: 2;
-    bottom: 20px; }
-  .get-in-touch.submitting .contact-form {
-    -webkit-transform: translateX(-50%) scale(0.8);
-        -ms-transform: translateX(-50%) scale(0.8);
-            transform: translateX(-50%) scale(0.8);
-    bottom: -40px;
-    -webkit-transition: all .4s 0s linear;
-    transition: all .4s 0s linear; }
-  .get-in-touch.submitting .envelope .cap {
-    height: 0;
-    -webkit-transition: all .1s 1s linear;
-    transition: all .1s 1s linear; }
-  .get-in-touch.submitting .envelope .cap-closed {
-    height: 250px;
-    -webkit-transition: all .1s 1s linear;
-    transition: all .1s 1s linear; }
-  .get-in-touch.submitting.flying .envelope-container {
-    -webkit-transform: translate(300%, -50%);
-        -ms-transform: translate(300%, -50%);
-            transform: translate(300%, -50%); }
-
-.success-message {
-  position: fixed;
-  width: 340px;
-  height: 240px;
-  z-index: 10;
-  text-align: center;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -60%);
-      -ms-transform: translate(-50%, -60%);
-          transform: translate(-50%, -60%); }
-  .is-hidden .success-message {
-    display: none; }
-  .success-message .small {
-    font-size: 18px;
-    font-weight: 300; }
-
-.contact-us-text {
-  position: fixed;
-  top: 16%;
-  left: 20%;
-  right: 20%;
-  opacity: 0;
-  -webkit-transition: all 0.5s 1s;
-  transition: all 0.5s 1s;
-  z-index: 5; }
-  .contact-us-text .section-title {
-    font-size: 36px; }
-  .contact-us-text p {
-    margin-top: 0; }
-  .is-open .contact-us-text {
-    top: 13%;
-    opacity: 1; }
-    @media (min-width: 1367px) {
-      .is-open .contact-us-text {
-        top: 14%; } }
-  .submitting .contact-us-text, .flying .contact-us-text {
-    opacity: 0;
-    -webkit-transition: all 0.5s 0s;
-    transition: all 0.5s 0s; }
-
-@-webkit-keyframes letterAppear {
-  0 {
-    bottom: -40px; }
-  50% {
-    bottom: 435px; }
-  100% {
-    bottom: -40px; } }
-
-@keyframes letterAppear {
-  0 {
-    bottom: -40px; }
-  50% {
-    bottom: 435px; }
-  100% {
-    bottom: -40px; } }
-
-@-webkit-keyframes letterHide {
-  0 {
-    bottom: -40px; }
-  50% {
-    bottom: 435px; }
-  100% {
-    bottom: -40px; } }
-
-@keyframes letterHide {
-  0 {
-    bottom: -40px; }
-  50% {
-    bottom: 435px; }
-  100% {
-    bottom: -40px; } }
