@@ -12,14 +12,39 @@ function hasScrolled() {
     return;
   if (st > lastScrollTop && st > navbarHeight){
     // Scroll Down
-    $('nav').fadeOut();
+    $('body').addClass('nav-visible');
   } else {
     // Scroll Up
     if(st + $(window).height() < $(document).height()) {
-      $('nav').fadeIn();
+      $('body').removeClass('nav-visible');
     }
   }
   lastScrollTop = st;
+}
+
+function hidePagination() {
+  var top = 0;
+  var bot = $(window).height()/2;
+  var scrolled = $(document).scrollTop();
+  if ( scrolled >= top &&  scrolled <= bot) {
+    $('.mini-nav').fadeOut();
+  } else {
+    $('.mini-nav').fadeIn();
+  };
+};
+
+function paginationControlls() {
+  var offTopRes = $(window).scrollTop();
+  $('.mini-nav--dropdown li').each(function(){
+    var controller = $(this),
+        id = controller.attr('data-scroll-to'),
+        el = $("[data-section='"+id+"']");
+    if (offTopRes >= (el.offset().top - (el.height()/2)) && offTopRes <= (el.offset().top + el.height()) ) {
+      var elNiceTitle = controller.attr('data-nice-title');
+      controller.addClass('active').siblings('li').removeClass('active');
+      $('.mini-nav--toggler').text(elNiceTitle);
+    }
+  });
 }
 
 function toggleNav(nav) {
@@ -36,12 +61,38 @@ function toggleNav(nav) {
   }
 }
 
+// Animate scroll
+$('[data-scroll-to]').click(function(){ 
+    var el = $(this).attr('data-scroll-to'),
+        offsetTop = $('[data-section="'+el+'"]').offset().top;
+    $('html,body').animate({ scrollTop: offsetTop }, 'slow');
+    return false; 
+});
+
+// Section class
+$(window).on("resize scroll", function () {
+  hidePagination();
+  paginationControlls();
+});
+// ready
 $(document).ready(function() {
+  hidePagination();
   $('[data-toggle-footer-nav]').click(function(event) {
     toggleNav('footer');
   });
   $('[data-toggle-main-nav]').click(function(event) {
     toggleNav('main');
+  });
+  // Sliders
+  $('[data-slider]').each(function() {
+    $(this).bxSlider({
+      auto: true,
+      mode: 'fade',
+      infiniteLoop: true,
+      controls: false,
+      useCSS: false,
+      pause: 2000
+    });
   });
 });
 

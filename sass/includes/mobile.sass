@@ -27,25 +27,37 @@ body
   font-size: 18px
   font-weight: 400
   line-height: 30px
-  background: #e79e11 url(../img/noise.png)
+  background: #ee9e2f
   text-shadow: 0 2px 6px rgba(0,0,0,0.1)
   &.scroll-blocked
     height: 100vh
     overflow: hidden
 
-h1,h3
+h1,h2,h3
   text-transform: uppercase
+h1,h2
+  font-family: $font-highlight
+  margin-bottom: 20px
 h1
   font-size: 36px
   line-height: 36px
-  font-family: $font-highlight
-  margin-bottom: 20px
+h2
+  font-size: 24px
+  line-height: 24px
 h3
   font-size: 21px
   line-height: 21px
   font-weight: 300
   font-family: $font-main
   margin-bottom: 10px
+
+img
+  display: block
+  margin: 0 auto
+  max-width: 100%
+
+p
+  font-family: $font-text
 
 .text
   &-right
@@ -55,7 +67,32 @@ h3
 
 section
   min-height: 100vh
+  padding: 50px 0
   color: $color-light
+  &.blueprint
+    background: #fff url(../img/bg-mesh.png)
+    color: rgba(#000, .7)
+    padding: 70px 0
+    img
+      margin: 30px auto
+
+.scroll-indicator
+  position: absolute
+  left: calc(50% - 10px)
+  bottom: 100px
+  animation: levitate 2s infinite
+  &>span
+    display: block
+    width: 20px
+    height: 20px
+    border: 1px solid #fff
+    border-width: 0 0 1px 1px
+    margin-top: -10px
+    transform: rotate(-45deg)
+
+.default-side-padding
+  padding-right: 15px
+  padding-left: 15px
 
 .align-center-vertical
   display: -webkit-box
@@ -81,8 +118,12 @@ nav
   right: 0
   z-index: 9
   padding: 10px
+  background: #fff
+  box-shadow: 0 1px 0 rgba(#000, .1)
+  transition: top .4s
   .logo
     a
+      display: block
       text-decoration: none
     .near-logo
       border: 5px solid
@@ -95,6 +136,8 @@ nav
     img
       display: inline-block
       vertical-align: middle
+  .nav-visible &
+    top: -60px
 
 .main-nav
   ul
@@ -143,16 +186,16 @@ nav
           left: 55%
           transform: translateY(-50%)
       &.ux-matters
-        background-image: url(../img/mobile/ux_matters.jpg)
+        background-image: url(../img/mobile/nav/ux_matters.jpg)
       &.design-process
-        background-image: url(../img/mobile/design_process.jpg)
+        background-image: url(../img/mobile/nav/design_process.jpg)
       &.portfolio
-        background-image: url(../img/mobile/behance.jpg)
+        background-image: url(../img/mobile/nav/behance.jpg)
   &.is-open ul
     left: 0%
 
 .main-nav--toggle
-  color: rgba($color-dark, .6)
+  color: rgba(#000, .7)
   .burger
     display: inline-block
     width: 28px
@@ -171,7 +214,6 @@ nav
   font-family: $font-highlight
   text-transform: uppercase
   color: rgba($color-dark, .8)
-
 .main-nav--title
   padding-left: 20px
   line-height: 16px
@@ -180,27 +222,32 @@ nav
   small
     font-size: 12px
     color: #aaa
-
-
 .main-nav--close
   height: 10vh
   font-size: 18px
   line-height: 10vh
-
 .border-shadow-left
   box-shadow: -1px 0 0 #eee
 
 // Footer pagination
 .mini-nav
   position: fixed
-  bottom: 0
+  transition: top .4s
+  top: 59px
   left: 0
   right: 0
   text-align: center
   z-index: 2
+  background: #fff
+  border-bottom: 1px solid rgba(#000, .1)
+  .nav-visible &
+    top: 0
 .mini-nav--toggler
   padding-right: 20px
-  font-size: 16px
+  font-size: 12px
+  line-height: 32px
+  text-transform: uppercase
+  font-weight: 600
   line-height: 32px
   color: rgba($color-dark, .6)
   display: inline-block
@@ -220,7 +267,7 @@ nav
   z-index: 3
   right: 20px
   left: 20px
-  bottom: 20px
+  top: 40px
   text-align: left
   background: #fff
   border-radius: 3px
@@ -293,3 +340,11 @@ $cols: 10
     flex-basis: 10% * ($cols)
     max-width: 10% * ($cols)
   $cols: $cols - 1
+
+@keyframes levitate
+  0%
+    transform: translateY(10px)
+  50%
+    transform: translateY(-10px)
+  100%
+    transform: translateY(10px)

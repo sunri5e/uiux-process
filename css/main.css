@@ -697,7 +697,7 @@ nav {
 .scene-playing-3 .logo .tooltip {
   background-color: #434343; }
   .scene-playing-3 .logo .tooltip:before {
-    border-color: transparent #434343 transparent transparent; }
+    border-color: transparent transparent #434343 transparent; }
 
 .scene-playing-3 .logo .near-logo {
   color: rgba(0, 0, 0, 0.7);
