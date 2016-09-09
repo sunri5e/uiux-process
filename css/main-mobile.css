@@ -78,17 +78,16 @@ h1, h2 {
   margin-bottom: 20px; }
 
 h1 {
-  font-size: 36px;
-  line-height: 36px; }
+  font-size: 52px;
+  line-height: 55px; }
 
 h2 {
   font-size: 24px;
   line-height: 24px; }
 
 h3 {
-  font-size: 21px;
-  line-height: 21px;
-  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
   font-family: "Roboto", sans-serif;
   margin-bottom: 10px; }
 
@@ -160,11 +159,9 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 9;
+  z-index: 2;
   padding: 10px;
   background: #fff;
-  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
   -webkit-transition: top .4s;
   transition: top .4s; }
   nav .logo a {
@@ -181,7 +178,7 @@ nav {
   nav .logo img {
     display: inline-block;
     vertical-align: middle; }
-  .nav-visible nav {
+  .nav-hidden nav {
     top: -60px; }
 
 .main-nav ul {
@@ -295,10 +292,11 @@ nav {
   left: 0;
   right: 0;
   text-align: center;
-  z-index: 2;
+  z-index: 3;
   background: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-  .nav-visible .mini-nav {
+  .nav-hidden .mini-nav {
     top: 0; }
 
 .mini-nav--toggler {

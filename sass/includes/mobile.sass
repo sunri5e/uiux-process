@@ -39,15 +39,14 @@ h1,h2
   font-family: $font-highlight
   margin-bottom: 20px
 h1
-  font-size: 36px
-  line-height: 36px
+  font-size: 52px
+  line-height: 55px
 h2
   font-size: 24px
   line-height: 24px
 h3
-  font-size: 21px
-  line-height: 21px
-  font-weight: 300
+  font-size: 14px
+  line-height: 16px
   font-family: $font-main
   margin-bottom: 10px
 
@@ -116,10 +115,9 @@ nav
   top: 0
   left: 0
   right: 0
-  z-index: 9
+  z-index: 2
   padding: 10px
   background: #fff
-  box-shadow: 0 1px 0 rgba(#000, .1)
   transition: top .4s
   .logo
     a
@@ -136,7 +134,7 @@ nav
     img
       display: inline-block
       vertical-align: middle
-  .nav-visible &
+  .nav-hidden &
     top: -60px
 
 .main-nav
@@ -237,10 +235,11 @@ nav
   left: 0
   right: 0
   text-align: center
-  z-index: 2
+  z-index: 3
   background: #fff
+  border-top: 1px solid rgba(#000, .1)
   border-bottom: 1px solid rgba(#000, .1)
-  .nav-visible &
+  .nav-hidden &
     top: 0
 .mini-nav--toggler
   padding-right: 20px

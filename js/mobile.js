@@ -12,11 +12,11 @@ function hasScrolled() {
     return;
   if (st > lastScrollTop && st > navbarHeight){
     // Scroll Down
-    $('body').addClass('nav-visible');
+    $('body').addClass('nav-hidden');
   } else {
     // Scroll Up
     if(st + $(window).height() < $(document).height()) {
-      $('body').removeClass('nav-visible');
+      $('body').removeClass('nav-hidden');
     }
   }
   lastScrollTop = st;
